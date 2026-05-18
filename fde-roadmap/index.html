@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forward Deployed Engineer - Learning Roadmap</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>FDE Roadmap - Production Path</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,239 +13,318 @@
         }
 
         :root {
-            --bg: #0a0a0f;
-            --bg-elevated: #12121a;
-            --bg-card: #1a1a24;
-            --border: #2a2a3a;
-            --text-primary: #e8e8f0;
-            --text-secondary: #a8a8b8;
-            --text-muted: #6a6a7a;
-            --accent: #00d4aa;
-            --accent-dim: #00a07a;
-            --warning: #ff6b6b;
-            --code-bg: #0d0d14;
+            --bg: #050505;
+            --bg-card: #0d0d0d;
+            --border: #1a1a1a;
+            --text: #e0e0e0;
+            --text-dim: #808080;
+            --accent: #00ff88;
+            --accent-dim: #00cc6a;
+            --warning: #ff4444;
+            --blue: #0088ff;
+            --purple: #cc00ff;
         }
 
         body {
-            font-family: 'IBM Plex Sans', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             background: var(--bg);
-            color: var(--text-primary);
-            line-height: 1.7;
-            font-size: 16px;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         /* Header */
         header {
-            padding: 4rem 0 3rem;
+            padding: 3rem 0;
+            text-align: center;
             border-bottom: 1px solid var(--border);
-            margin-bottom: 3rem;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.8;
+            position: relative;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, var(--accent), #00ffd5);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent), var(--blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
         }
 
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 4rem 0 1.5rem;
-            color: var(--accent);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        h3 {
+        .subtitle {
             font-size: 1.3rem;
-            font-weight: 600;
-            margin: 2rem 0 1rem;
-            color: var(--text-primary);
+            color: var(--text-dim);
+            max-width: 800px;
+            margin: 0 auto 2rem;
         }
 
-        p {
-            margin-bottom: 1.2rem;
-            color: var(--text-secondary);
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
         }
 
-        /* Lists */
-        ul {
-            margin: 1.5rem 0;
-            padding-left: 0;
-            list-style: none;
+        .stat {
+            text-align: center;
         }
 
-        ul li {
-            margin-bottom: 1rem;
-            padding-left: 1.8rem;
-            position: relative;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        ul li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
             color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Pipeline */
+        .pipeline {
+            padding: 4rem 0;
+        }
+
+        .phase {
+            margin-bottom: 6rem;
+            position: relative;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .phase-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--bg);
+        }
+
+        .phase-title {
+            font-size: 2.5rem;
             font-weight: 700;
         }
 
-        /* Links */
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: all 0.2s;
+        .phase-description {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
         }
 
-        a:hover {
-            border-bottom-color: var(--accent);
+        /* Project Cards */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
         }
 
-        /* Code and inline elements */
-        code {
-            font-family: 'JetBrains Mono', monospace;
-            background: var(--code-bg);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.9em;
-            color: var(--accent);
-        }
-
-        strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        em {
-            color: var(--accent);
-            font-style: normal;
-            font-weight: 500;
-        }
-
-        /* Section Cards */
-        .section-card {
+        .project-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .section-card h3 {
-            margin-top: 0;
-        }
-
-        /* Week Plan */
-        .week-plan {
-            display: grid;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .week-item {
-            background: var(--bg-card);
-            border-left: 3px solid var(--accent);
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-
-        .week-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .week-content {
-            color: var(--text-secondary);
-        }
-
-        /* Table */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            background: var(--bg-card);
-            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
             overflow: hidden;
         }
 
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--blue));
+            transform: scaleX(0);
+            transition: transform 0.3s;
         }
 
-        th {
-            background: var(--code-bg);
-            color: var(--accent);
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .project-badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             font-family: 'JetBrains Mono', monospace;
+        }
+
+        .badge-beginner { background: rgba(0, 255, 136, 0.1); color: var(--accent); }
+        .badge-intermediate { background: rgba(0, 136, 255, 0.1); color: var(--blue); }
+        .badge-advanced { background: rgba(204, 0, 255, 0.1); color: var(--purple); }
+        .badge-expert { background: rgba(255, 68, 68, 0.1); color: var(--warning); }
+
+        .project-difficulty {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .difficulty-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+        }
+
+        .difficulty-dot.filled {
+            background: var(--accent);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            padding: 0.3rem 0.7rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-dim);
+        }
+
+        /* Timeline Connector */
+        .timeline-connector {
+            width: 2px;
+            height: 80px;
+            background: linear-gradient(180deg, var(--accent), var(--blue));
+            margin: 0 auto;
+            opacity: 0.3;
+        }
+
+        /* Milestone Section */
+        .milestones {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .milestone-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .milestone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .milestone-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 255, 136, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .milestone-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .milestone-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .milestone-item p {
+            color: var(--text-dim);
             font-size: 0.9rem;
         }
 
-        td {
-            color: var(--text-secondary);
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
         /* Warning Box */
-        .warning-box {
-            background: rgba(255, 107, 107, 0.1);
-            border-left: 3px solid var(--warning);
-            padding: 1.5rem;
+        .warning-section {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 2rem;
             border-radius: 8px;
-            margin: 2rem 0;
+            margin: 4rem 0;
         }
 
-        .warning-box h3 {
-            margin-top: 0;
+        .warning-section h2 {
             color: var(--warning);
+            margin-bottom: 1rem;
         }
 
         /* Footer */
         footer {
-            margin-top: 6rem;
-            padding: 3rem 0;
-            border-top: 1px solid var(--border);
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            h2 {
-                font-size: 1.5rem;
+            .projects {
+                grid-template-columns: 1fr;
             }
 
-            .container {
-                padding: 0 1.5rem;
+            .stats {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
     </style>
@@ -253,258 +332,492 @@
 <body>
     <div class="container">
         <header>
-            <h1>Forward Deployed Engineer<br>Learning Roadmap</h1>
+            <h1>FDE Production Path</h1>
             <p class="subtitle">
-                A focused guide on what to learn (and where) to be ready for a Forward Deployed Engineer / Applied AI Engineer role at any frontier AI lab or enterprise AI company. Organized by topic, ordered roughly from foundations → advanced → role-shaped soft skills.
+                Real-world deployment roadmap for Forward Deployed Engineers. No theory. No tutorials. Just production systems, customer problems, and enterprise scale.
             </p>
-            <p class="subtitle">
-                Given a strong SWE background, the biggest deltas are usually: <strong>LLM-native engineering patterns</strong>, <strong>agent infrastructure</strong> (MCP, skills, sub-agents), <strong>evaluation discipline</strong>, and the <em>consulting</em> half of the job — discovery, scoping under ambiguity, and translating between executives and engineers.
-            </p>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Weeks</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Production Projects</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Phases</div>
+                </div>
+            </div>
         </header>
 
-        <main>
-            <h2>1. Foundations of LLM-native engineering</h2>
-            <p>The mental shift from "API that returns text" to "stochastic component you have to engineer around." Read broadly across labs — not just one.</p>
-            <ul>
-                <li><strong>Anthropic - Building Effective AI Agents</strong>: the canonical essay distinguishing <em>workflows</em> (predefined code paths) from <em>agents</em> (LLMs dynamically directing tool use). Covers prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer. <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank">Read essay →</a></li>
-                <li><strong>Anthropic - Effective Context Engineering for AI Agents</strong>: the follow-up, defining "context engineering" as the next phase after prompt engineering. <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank">Read essay →</a></li>
-                <li><strong>OpenAI - A Practical Guide to Building Agents</strong> (PDF): <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank">Download guide →</a></li>
-                <li><strong>Chip Huyen - AI Engineering</strong> (book): the most comprehensive practitioner text. Covers eval, RAG, fine-tuning tradeoffs, inference optimization end-to-end.</li>
-                <li><strong>Simon Willison's blog</strong>: pragmatic, current, vendor-agnostic. <a href="https://simonwillison.net" target="_blank">Visit blog →</a></li>
-                <li><strong>Hamel Husain's blog</strong>, especially the eval posts: <a href="https://hamel.dev" target="_blank">Visit blog →</a></li>
-                <li><strong>Eugene Yan's blog</strong>: applied ML and LLM patterns from a practitioner who's shipped at scale. <a href="https://eugeneyan.com" target="_blank">Visit blog →</a></li>
-            </ul>
-
-            <h2>2. The major API surfaces</h2>
-            <p>You should be fluent in at least one frontier API end-to-end, and <em>literate</em> in the others — customers always ask "why not the other guy."</p>
-            <ul>
-                <li><strong>Anthropic Claude docs</strong>: <a href="https://docs.claude.com" target="_blank">docs.claude.com</a></li>
-                <li><strong>OpenAI API docs</strong>: <a href="https://platform.openai.com/docs" target="_blank">platform.openai.com/docs</a></li>
-                <li><strong>Google Gemini API docs</strong>: <a href="https://ai.google.dev/gemini-api/docs" target="_blank">ai.google.dev/gemini-api/docs</a></li>
-                <li><strong>Meta Llama (open weights)</strong>: <a href="https://www.llama.com" target="_blank">llama.com</a></li>
-            </ul>
-
-            <h3>Core concepts to internalize regardless of provider:</h3>
-            <ul>
-                <li>The chat completions / messages loop and streaming</li>
-                <li>Tool use / function calling — schema design, the tool_call → tool_result loop, parallel tool calls</li>
-                <li>Structured outputs (JSON mode, schemas)</li>
-                <li>Prompt caching (huge cost/latency lever in production)</li>
-                <li>Batch APIs (often 50% cost for non-realtime workloads)</li>
-                <li>Reasoning / extended-thinking models and when they're worth the latency</li>
-                <li>Context windows, attention budgets, and how performance degrades at the tail</li>
-            </ul>
-
-            <p><strong>Pick a deliberate sub-project</strong>: ship one real app on the API of your target lab, instrumented with caching + tool use + a proper eval harness. Forces depth.</p>
-
-            <h2>3. Prompt engineering and context engineering</h2>
-            <p>The literature is much better than it was a year ago.</p>
-            <ul>
-                <li><strong>Anthropic prompt engineering guide</strong>: <a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank">View guide →</a></li>
-                <li><strong>OpenAI prompting guide</strong>: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank">View guide →</a></li>
-                <li><strong>DAIR.AI Prompt Engineering Guide</strong> (vendor-agnostic): <a href="https://www.promptingguide.ai" target="_blank">promptingguide.ai</a></li>
-            </ul>
-
-            <p>Patterns worth being fluent in: few-shot, chain-of-thought, XML/structured tagging, prefilling, self-consistency, ReAct, reflexion, plan-and-execute.</p>
-
-            <h2>4. Agent infrastructure and protocols</h2>
-            <p>This is where most enterprise FDE work lives today. The patterns are converging across labs.</p>
-            <ul>
-                <li><strong>Model Context Protocol (MCP)</strong> — open standard for connecting LLMs to tools and data. Originated at Anthropic but adopted broadly. <a href="https://modelcontextprotocol.io" target="_blank">modelcontextprotocol.io</a> and <a href="https://github.com/modelcontextprotocol" target="_blank">GitHub →</a></li>
-                <li><strong>Agent Skills</strong> — open standard for packaging procedural knowledge (a SKILL.md + scripts) that an agent loads on demand. <a href="https://agentskills.io" target="_blank">agentskills.io</a></li>
-                <li><strong>OpenAI Agents SDK</strong>: <a href="https://openai.github.io/openai-agents-python/" target="_blank">Documentation →</a></li>
-                <li><strong>LangGraph</strong> (LangChain's graph-based orchestrator): <a href="https://langchain-ai.github.io/langgraph/" target="_blank">Documentation →</a></li>
-                <li><strong>CrewAI, AutoGen, Mastra</strong>: know they exist, know the tradeoffs. Most senior engineers in this space prefer thinner abstractions over heavyweight frameworks.</li>
-            </ul>
-
-            <p><strong>Concrete build to do once</strong>: ship one MCP server publicly. Pick something an enterprise would actually care about (e.g. a wrapper around an internal API shape — Jira-like, ServiceNow-like, Salesforce-like). Two transports (stdio + HTTP), one weekend.</p>
-
-            <h2>5. Retrieval and RAG (without over-indexing)</h2>
-            <p>RAG is no longer the centerpiece it was in 2023, but you need to know it cold because most enterprise deployments still involve it.</p>
-            <ul>
-                <li><strong>Anthropic - Contextual Retrieval</strong>: <a href="https://www.anthropic.com/news/contextual-retrieval" target="_blank">Read more →</a></li>
-                <li><strong>Pinecone Learning Center</strong>: <a href="https://www.pinecone.io/learn/" target="_blank">pinecone.io/learn</a></li>
-                <li><strong>LlamaIndex docs</strong>: <a href="https://docs.llamaindex.ai" target="_blank">docs.llamaindex.ai</a></li>
-                <li><strong>Eugene Yan - "Patterns for Building LLM-based Systems & Products"</strong>: <a href="https://eugeneyan.com/writing/llm-patterns/" target="_blank">Read article →</a></li>
-            </ul>
-
-            <p>Things to actually understand: chunking strategies, hybrid search (BM25 + dense), reranking, evaluation (recall@k, MRR), when to use a graph/structured approach instead. Don't spend weeks building a vector DB from scratch — understand at the level of "when to use it, how to evaluate it."</p>
-
-            <h2>6. Evaluation frameworks (the part most engineers underweight)</h2>
-            <p>FDEs ship things to customers who need to justify spend. <strong>No evals = no production deployment.</strong></p>
-            <ul>
-                <li><strong>Hamel Husain - "Your AI Product Needs Evals"</strong>: <a href="https://hamel.dev/blog/posts/evals/" target="_blank">Required reading →</a></li>
-                <li><strong>Anthropic eval docs</strong>: <a href="https://docs.claude.com/en/docs/test-and-evaluate/develop-tests" target="_blank">Documentation →</a></li>
-                <li><strong>OpenAI Evals</strong> (framework + cookbook): <a href="https://github.com/openai/evals" target="_blank">GitHub →</a></li>
-                <li><strong>Inspect AI</strong> (UK AISI's open-source framework, widely used in enterprise): <a href="https://inspect.ai-safety-institute.org.uk/" target="_blank">inspect.ai-safety-institute.org.uk</a></li>
-                <li><strong>Braintrust</strong>: <a href="https://www.braintrust.dev" target="_blank">braintrust.dev</a></li>
-                <li><strong>Langfuse</strong> (open-source): <a href="https://langfuse.com" target="_blank">langfuse.com</a></li>
-                <li><strong>Promptfoo</strong>: <a href="https://www.promptfoo.dev" target="_blank">promptfoo.dev</a></li>
-            </ul>
-
-            <p>Patterns to learn: LLM-as-judge (and its failure modes), pairwise comparison, rubric-based grading, golden datasets, regression suites, online eval via user signals.</p>
-
-            <p><strong>Pick one framework and ship an eval harness with it.</strong> The framework matters less than having done it once seriously.</p>
-
-            <h2>7. Observability, security, and safety</h2>
-            <p>The boring parts that determine whether a deployment actually survives in production.</p>
-
-            <h3>Observability</h3>
-            <ul>
-                <li>Langfuse, Braintrust, <strong>Arize Phoenix</strong>: <a href="https://phoenix.arize.com" target="_blank">phoenix.arize.com</a></li>
-                <li><strong>Helicone</strong>: <a href="https://www.helicone.ai" target="_blank">helicone.ai</a></li>
-                <li>Patterns: trace every LLM call, log prompts + completions + tokens + latency + cost, sample for offline eval.</li>
-            </ul>
-
-            <h3>Security</h3>
-            <ul>
-                <li><strong>OWASP Top 10 for LLM Applications</strong>: <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">Read →</a></li>
-                <li><strong>Simon Willison's prompt injection writing</strong>: <a href="https://simonwillison.net/tags/prompt-injection/" target="_blank">Read →</a></li>
-                <li><strong>NIST AI Risk Management Framework</strong>: <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank">Read →</a></li>
-            </ul>
-
-            <h2>8. Enterprise vertical context</h2>
-            <p>The JD almost always calls out "financial services, healthcare/life sciences, or another enterprise vertical" as a plus. Pick one and go deep enough to hold a 30-minute discovery conversation with a domain expert.</p>
-
-            <ul>
-                <li><strong>Financial services</strong>: SR 11-7 (model risk management), trade lifecycle basics, KYC/AML workflows, how compliance reviews AI systems. Reference customers: Bridgewater, Brex, JPMorgan's AI work.</li>
-                <li><strong>Healthcare / life sciences</strong>: HIPAA, PHI handling, FDA's framework for AI/ML-based SaMD, clinical documentation workflows, EHR integration patterns.</li>
-                <li><strong>Legal</strong>: contract review workflows, document retention, privilege. Reference companies: Harvey, Hebbia, Ironclad.</li>
-                <li><strong>Customer service / CX</strong>: ticketing, deflection, agent assist, voice. Reference companies: Intercom (Fin), Sierra, Decagon.</li>
-            </ul>
-
-            <p>Each frontier lab publishes customer stories — read 5-10 across verticals to see what real deployments look like.</p>
-
-            <h2>9. The forward-deployed motion (the <em>consulting</em> half)</h2>
-            <p>This is what most engineers underweight, and it's often what separates strong FDE candidates from strong SWE candidates.</p>
-
-            <ul>
-                <li><strong>Palantir FDE writing</strong> — Palantir invented this role. Read their playbook: <a href="https://blog.palantir.com/a-day-in-the-life-of-a-palantir-forward-deployed-software-engineer-45ef2de257b1" target="_blank">Day in the life →</a> and search YouTube for "Palantir forward deployed" talks.</li>
-                <li><strong>The Mom Test</strong> by Rob Fitzpatrick — short book, the customer-discovery bible.</li>
-                <li><strong>SPIN Selling</strong> by Neil Rackham — the question structure FDEs use in technical scoping calls.</li>
-                <li><strong>The Pyramid Principle</strong> by Barbara Minto — writing/communicating for executives.</li>
-                <li><strong>An Elegant Puzzle</strong> by Will Larson, and his blog <a href="https://lethain.com" target="_blank">lethain.com</a> — working under ambiguity at staff level.</li>
-                <li><strong>High Output Management</strong> by Andy Grove — still the best book on managing throughput across functions.</li>
-            </ul>
-
-            <p>A practical exercise: take one of your past complex projects and write it up as a case study — situation, customer/stakeholder goal, constraints, what you built, measured outcome. FDE interview loops lean heavily on these.</p>
-
-            <h2>10. Building your evidence portfolio (what to ship before applying)</h2>
-            <p>Concrete artifacts an interviewer can read in 10 minutes carry more weight than anything else. Aim for 3-4 of these:</p>
-
-            <ol style="list-style: decimal; padding-left: 2rem;">
-                <li><strong>An MCP server</strong> for a non-trivial enterprise-shaped API. Open-source on GitHub with a clear README and a 60-second demo video.</li>
-                <li><strong>A custom Agent Skill</strong> (or equivalent for whichever lab you're targeting) that does something you actually use.</li>
-                <li><strong>A small agent</strong> that solves a real workflow you do every week. Show eval results, not just the demo.</li>
-                <li><strong>A teardown post</strong>: pick one of the frontier engineering posts above, implement the pattern, write 800-1200 words on what worked and what didn't. This is exactly the kind of artifact FDEs produce internally.</li>
-                <li><strong>A "deployment pattern" writeup</strong>: pick a customer profile (e.g. "mid-size insurance company doing claims triage"), sketch the architecture (which cloud, RAG approach, eval setup, guardrails). One page.</li>
-            </ol>
-
-            <h2>11. Suggested 8-week sequence</h2>
-            <div class="week-plan">
-                <div class="week-item">
-                    <div class="week-number">WEEK 1</div>
-                    <div class="week-content">Rebuild one piece of an existing app of yours on a frontier API with tool use + prompt caching.</div>
+        <main class="pipeline">
+            <!-- Phase 1 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">1</div>
+                    <div>
+                        <h2 class="phase-title">Production LLM Engineering</h2>
+                        <p class="phase-description">Ship a real app with actual users. Not a demo. Not a prototype. Something that breaks when you push bad code.</p>
+                    </div>
                 </div>
-                <div class="week-item">
-                    <div class="week-number">WEEK 2</div>
-                    <div class="week-content">MCP. Ship one MCP server publicly.</div>
-                </div>
-                <div class="week-item">
-                    <div class="week-number">WEEK 3</div>
-                    <div class="week-content">Agent Skills (or your target lab's equivalent). Read 3 reference skills. Ship one custom skill that composes with your MCP server.</div>
-                </div>
-                <div class="week-item">
-                    <div class="week-number">WEEK 4</div>
-                    <div class="week-content">Evals. Pick one framework. Add an eval harness to the Week 1 project. Get a baseline number.</div>
-                </div>
-                <div class="week-item">
-                    <div class="week-number">WEEK 5</div>
-                    <div class="week-content">Multi-agent + sub-agents. Build one orchestrator + 2 sub-agents pattern.</div>
-                </div>
-                <div class="week-item">
-                    <div class="week-number">WEEK 6</div>
-                    <div class="week-content">Deployment surfaces. Deploy your agent to Bedrock or Vertex. Document the security model and data flow.</div>
-                </div>
-                <div class="week-item">
-                    <div class="week-number">WEEK 7</div>
-                    <div class="week-content">Vertical depth. Pick one vertical from §9. Build a domain-shaped demo on top of your existing infrastructure.</div>
-                </div>
-                <div class="week-item">
-                    <div class="week-number">WEEK 8</div>
-                    <div class="week-content">Polish. Write up 2-3 artifacts as case studies. Practice talking through them out loud — discovery questions, tradeoffs, what you'd do differently.</div>
+
+                <div class="projects">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-beginner">Week 1-2</span>
+                            <div class="project-difficulty">
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot"></div>
+                                <div class="difficulty-dot"></div>
+                                <div class="difficulty-dot"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Production Chat Agent with Tools</h3>
+                        <p class="project-description">
+                            Build a Claude-powered agent that calls 3+ real APIs (not mocks). Add prompt caching to cut costs 80%. Deploy to Vercel/Railway with logs. Share the URL publicly. If it crashes, you fix it.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Claude API</span>
+                            <span class="tech-tag">Tool Use</span>
+                            <span class="tech-tag">Prompt Caching</span>
+                            <span class="tech-tag">Production Deploy</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-intermediate">Week 2-3</span>
+                            <div class="project-difficulty">
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot"></div>
+                                <div class="difficulty-dot"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Cost Optimization Kill Sheet</h3>
+                        <p class="project-description">
+                            Take a real LLM app spending $500/month. Get it to $50/month without degrading quality. Document: batch API usage, prompt compression, caching strategy, model selection, streaming optimization. Show the billing receipts.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Cost Analysis</span>
+                            <span class="tech-tag">Batch API</span>
+                            <span class="tech-tag">Optimization</span>
+                            <span class="tech-tag">Production Metrics</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="warning-box">
-                <h3>12. Things explicitly worth <em>not</em> over-investing in</h3>
-                <ul>
-                    <li><strong>Building a vector DB from scratch.</strong> The job is about deploying LLMs well, not winning a RAG benchmark.</li>
-                    <li><strong>Fine-tuning.</strong> Most frontier labs' top models aren't user-fine-tunable, and the FDE motion almost never needs it. Knowing <em>why</em> prompting + context engineering replace most fine-tuning use cases is more valuable than fine-tuning skill itself.</li>
-                    <li><strong>Framework depth for its own sake.</strong> Know LangChain / LlamaIndex / CrewAI exist; customers use them. Don't build your reference implementations on top of heavyweight frameworks — most senior engineers in this space prefer thin, direct API calls.</li>
-                    <li><strong>Chasing every new model release.</strong> Frontier moves weekly. Build for capability classes (reasoning / tool-using / cheap-and-fast / multimodal), not specific model names.</li>
+            <div class="timeline-connector"></div>
+
+            <!-- Phase 2 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">2</div>
+                    <div>
+                        <h2 class="phase-title">Agent Infrastructure</h2>
+                        <p class="phase-description">Build systems that other engineers can use. MCP servers, agent skills, deployment patterns. This is where FDEs live.</p>
+                    </div>
+                </div>
+
+                <div class="projects">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-intermediate">Week 3-4</span>
+                            <div class="project-difficulty">
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot"></div>
+                                <div class="difficulty-dot"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Enterprise MCP Server</h3>
+                        <p class="project-description">
+                            Build an MCP server for a real enterprise API (Jira/Salesforce/ServiceNow clone). Support stdio + HTTP transports. Add auth (OAuth/API keys). Write docs a PM could follow. Get 3 people to use it. Handle their bug reports.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">MCP Protocol</span>
+                            <span class="tech-tag">OAuth</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Documentation</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-advanced">Week 4-5</span>
+                            <div class="project-difficulty">
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Multi-Agent Orchestrator</h3>
+                        <p class="project-description">
+                            Build an orchestrator + 2 specialist sub-agents. One does research, one writes code, orchestrator routes and synthesizes. Add handoff logic. Deploy it. Show it solving a real problem (not "write me a poem").
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Agent Architecture</span>
+                            <span class="tech-tag">Sub-agents</span>
+                            <span class="tech-tag">Routing Logic</span>
+                            <span class="tech-tag">LangGraph</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-connector"></div>
+
+            <!-- Phase 3 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">3</div>
+                    <div>
+                        <h2 class="phase-title">Enterprise Deployment</h2>
+                        <p class="phase-description">The part that separates hobbyists from FDEs. Security, compliance, audit logs, SSO, RBAC. The boring stuff that customers actually pay for.</p>
+                    </div>
+                </div>
+
+                <div class="projects">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-advanced">Week 6-7</span>
+                            <div class="project-difficulty">
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">AWS Bedrock / GCP Vertex Deploy</h3>
+                        <p class="project-description">
+                            Take your Week 1 agent. Deploy it on AWS Bedrock or GCP Vertex. Add: SSO (SAML/OIDC), RBAC (3 roles minimum), audit logging (who asked what when), cost allocation tags. Document the security model. Run it for a week.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">AWS Bedrock</span>
+                            <span class="tech-tag">SSO</span>
+                            <span class="tech-tag">RBAC</span>
+                            <span class="tech-tag">Audit Logs</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-expert">Week 7-8</span>
+                            <div class="project-difficulty">
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Production Incident Drill</h3>
+                        <p class="project-description">
+                            Your production app just went down. Costs spiked 10x. A customer is waiting on Zoom. You have 30 minutes. Set up: Grafana dashboard, alert rules, runbook. Simulate: prompt injection, rate limit hit, model degradation. Fix it. Write the post-mortem.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Observability</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">Incident Response</span>
+                            <span class="tech-tag">Post-mortems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-connector"></div>
+
+            <!-- Phase 4 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">4</div>
+                    <div>
+                        <h2 class="phase-title">Evaluation & Quality</h2>
+                        <p class="phase-description">No evals = no production. Customers need numbers. "It works" doesn't cut it. Build eval harnesses that prove your agent isn't hallucinating.</p>
+                    </div>
+                </div>
+
+                <div class="projects">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-advanced">Week 9-10</span>
+                            <div class="project-difficulty">
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Eval Harness from Scratch</h3>
+                        <p class="project-description">
+                            Pick one of your agents. Build a golden dataset (50+ examples). Implement: LLM-as-judge, pairwise comparison, rubric scoring. Set up CI/CD that fails if eval score drops >5%. Run it nightly. Show the regression you caught.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Inspect AI</span>
+                            <span class="tech-tag">LLM-as-Judge</span>
+                            <span class="tech-tag">Golden Datasets</span>
+                            <span class="tech-tag">CI/CD</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-expert">Week 10-11</span>
+                            <div class="project-difficulty">
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Adversarial Eval Suite</h3>
+                        <p class="project-description">
+                            Build 20+ adversarial test cases for your agent: prompt injection attempts, jailbreaks, edge cases, malformed inputs, hallucination triggers. Add guardrails. Measure: false positive rate, false negative rate, latency impact. Document what works.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Security Testing</span>
+                            <span class="tech-tag">Guardrails</span>
+                            <span class="tech-tag">Prompt Injection</span>
+                            <span class="tech-tag">Red Teaming</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-connector"></div>
+
+            <!-- Phase 5 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">5</div>
+                    <div>
+                        <h2 class="phase-title">Customer-Facing Delivery</h2>
+                        <p class="phase-description">The consulting half. Discovery, scoping, demos, stakeholder management. This is what FDE interviews test for.</p>
+                    </div>
+                </div>
+
+                <div class="projects">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-expert">Week 11-12</span>
+                            <div class="project-difficulty">
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Enterprise Case Study</h3>
+                        <p class="project-description">
+                            Pick a vertical (fintech/healthcare/legal). Design a full deployment: customer profile, problem statement, architecture diagram, RAG strategy, eval plan, security model, cost estimate, success metrics. Write it like a one-pager for a VP.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Discovery</span>
+                            <span class="tech-tag">Architecture</span>
+                            <span class="tech-tag">Business Case</span>
+                            <span class="tech-tag">Stakeholder Mgmt</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-expert">Week 12</span>
+                            <div class="project-difficulty">
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                                <div class="difficulty-dot filled"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Live Demo + Q&A</h3>
+                        <p class="project-description">
+                            Record a 10-minute demo of your best project. Explain: the business problem, your solution, the tech stack, eval results, cost breakdown, what you'd do differently. Practice talking to executives, not engineers. Post it publicly. Get feedback.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Communication</span>
+                            <span class="tech-tag">Demos</span>
+                            <span class="tech-tag">Presentation</span>
+                            <span class="tech-tag">Executive Presence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack Section -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">🛠️</div>
+                    <div>
+                        <h2 class="phase-title">Tech Stack You Need</h2>
+                        <p class="phase-description">The frameworks, tools, and platforms FDEs use daily. You don't need to master everything, but you need to know what exists and when to use it.</p>
+                    </div>
+                </div>
+
+                <div class="projects">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-beginner">Core</span>
+                        </div>
+                        <h3 class="project-title">LLM APIs & SDKs</h3>
+                        <p class="project-description">
+                            Master at least one, be literate in the others. Customers always ask "why not X?"
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Anthropic Claude</span>
+                            <span class="tech-tag">OpenAI GPT</span>
+                            <span class="tech-tag">Google Gemini</span>
+                            <span class="tech-tag">AWS Bedrock</span>
+                            <span class="tech-tag">Azure OpenAI</span>
+                            <span class="tech-tag">GCP Vertex AI</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-intermediate">Agent Frameworks</span>
+                        </div>
+                        <h3 class="project-title">Orchestration & Agents</h3>
+                        <p class="project-description">
+                            Know when to use frameworks vs raw API calls. Most senior FDEs prefer thin abstractions.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">LangGraph</span>
+                            <span class="tech-tag">CrewAI</span>
+                            <span class="tech-tag">AutoGen</span>
+                            <span class="tech-tag">Mastra</span>
+                            <span class="tech-tag">OpenAI Agents SDK</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-intermediate">Agent Standards</span>
+                        </div>
+                        <h3 class="project-title">MCP & Skills</h3>
+                        <p class="project-description">
+                            The protocols that connect agents to tools and data. This is where enterprise work lives.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Model Context Protocol</span>
+                            <span class="tech-tag">Agent Skills</span>
+                            <span class="tech-tag">OpenAI Function Calling</span>
+                            <span class="tech-tag">Anthropic Tool Use</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-advanced">Evaluation</span>
+                        </div>
+                        <h3 class="project-title">Eval & Observability</h3>
+                        <p class="project-description">
+                            No evals = no production. Pick one eval framework, one observability platform. Use them on every project.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Inspect AI</span>
+                            <span class="tech-tag">Braintrust</span>
+                            <span class="tech-tag">Langfuse</span>
+                            <span class="tech-tag">Promptfoo</span>
+                            <span class="tech-tag">Arize Phoenix</span>
+                            <span class="tech-tag">Helicone</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-intermediate">RAG Stack</span>
+                        </div>
+                        <h3 class="project-title">Retrieval & Vector DBs</h3>
+                        <p class="project-description">
+                            Don't build from scratch. Use managed services. Focus on chunking strategy and eval.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Pinecone</span>
+                            <span class="tech-tag">Weaviate</span>
+                            <span class="tech-tag">Chroma</span>
+                            <span class="tech-tag">LlamaIndex</span>
+                            <span class="tech-tag">Unstructured.io</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-badge badge-expert">Enterprise Deploy</span>
+                        </div>
+                        <h3 class="project-title">Security & Compliance</h3>
+                        <p class="project-description">
+                            The boring stuff customers actually pay for. SSO, RBAC, audit logs, guardrails.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Auth0 / Okta</span>
+                            <span class="tech-tag">AWS IAM</span>
+                            <span class="tech-tag">GCP IAM</span>
+                            <span class="tech-tag">NeMo Guardrails</span>
+                            <span class="tech-tag">LLM Guard</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-connector"></div>
+
+            <!-- Milestones -->
+            <div class="milestones">
+                <h2 class="milestone-title">🎯 Success Milestones</h2>
+                <div class="milestone-grid">
+                    <div class="milestone-item">
+                        <div class="milestone-icon">🚀</div>
+                        <h3>Production Deploy</h3>
+                        <p>3+ apps live with real users</p>
+                    </div>
+                    <div class="milestone-item">
+                        <div class="milestone-icon">💰</div>
+                        <h3>Cost Reduction</h3>
+                        <p>10x cost optimization documented</p>
+                    </div>
+                    <div class="milestone-item">
+                        <div class="milestone-icon">🔒</div>
+                        <h3>Enterprise Security</h3>
+                        <p>SSO + RBAC + Audit logs deployed</p>
+                    </div>
+                    <div class="milestone-item">
+                        <div class="milestone-icon">📊</div>
+                        <h3>Eval Framework</h3>
+                        <p>Golden dataset + CI/CD evals</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warning -->
+            <div class="warning-section">
+                <h2>⚠️ Don't Waste Time On</h2>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 1rem;">❌ <strong>Building vector DBs from scratch</strong> - Use Pinecone/Weaviate. FDEs deploy, not research.</li>
+                    <li style="margin-bottom: 1rem;">❌ <strong>Fine-tuning models</strong> - Frontier labs don't expose it. Context engineering > fine-tuning.</li>
+                    <li style="margin-bottom: 1rem;">❌ <strong>Framework rabbit holes</strong> - Know LangChain exists. Use thin abstractions. Direct API calls win.</li>
+                    <li style="margin-bottom: 1rem;">❌ <strong>Chasing model releases</strong> - Build for capability classes, not model names.</li>
+                    <li style="margin-bottom: 1rem;">❌ <strong>Tutorial hell</strong> - Stop watching videos. Ship something. Break it. Fix it. Repeat.</li>
                 </ul>
             </div>
-
-            <h2>Quick-reference links</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Topic</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>MCP</td>
-                        <td><a href="https://modelcontextprotocol.io" target="_blank">modelcontextprotocol.io</a></td>
-                    </tr>
-                    <tr>
-                        <td>Agent Skills standard</td>
-                        <td><a href="https://agentskills.io" target="_blank">agentskills.io</a></td>
-                    </tr>
-                    <tr>
-                        <td>Anthropic engineering blog</td>
-                        <td><a href="https://www.anthropic.com/engineering" target="_blank">anthropic.com/engineering</a></td>
-                    </tr>
-                    <tr>
-                        <td>OpenAI agents guide</td>
-                        <td><a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank">Download PDF</a></td>
-                    </tr>
-                    <tr>
-                        <td>Google Gemini docs</td>
-                        <td><a href="https://ai.google.dev/gemini-api/docs" target="_blank">ai.google.dev/gemini-api/docs</a></td>
-                    </tr>
-                    <tr>
-                        <td>Hamel on evals</td>
-                        <td><a href="https://hamel.dev/blog/posts/evals/" target="_blank">hamel.dev/blog/posts/evals</a></td>
-                    </tr>
-                    <tr>
-                        <td>Simon Willison</td>
-                        <td><a href="https://simonwillison.net" target="_blank">simonwillison.net</a></td>
-                    </tr>
-                    <tr>
-                        <td>Eugene Yan</td>
-                        <td><a href="https://eugeneyan.com" target="_blank">eugeneyan.com</a></td>
-                    </tr>
-                    <tr>
-                        <td>OWASP LLM Top 10</td>
-                        <td><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">OWASP project</a></td>
-                    </tr>
-                    <tr>
-                        <td>Inspect AI</td>
-                        <td><a href="https://inspect.ai-safety-institute.org.uk/" target="_blank">inspect.ai-safety-institute.org.uk</a></td>
-                    </tr>
-                    <tr>
-                        <td>Palantir FDE post</td>
-                        <td><a href="https://blog.palantir.com/a-day-in-the-life-of-a-palantir-forward-deployed-software-engineer-45ef2de257b1" target="_blank">Day in the life</a></td>
-                    </tr>
-                </tbody>
-            </table>
         </main>
 
         <footer>
-            <p>Built by <a href="https://github.com/shariqbinrashid" target="_blank">Shariq Bin Rashid</a> | Learning Forward Deployed Engineering</p>
+            <p>Built by <a href="https://github.com/shariqbinrashid" style="color: var(--accent); text-decoration: none;">Shariq Bin Rashid</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Based on real FDE job requirements from Anthropic, OpenAI, and enterprise consulting firms.</p>
         </footer>
     </div>
 </body>
