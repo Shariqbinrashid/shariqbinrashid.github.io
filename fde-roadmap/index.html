@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forward Deployed Engineer - Complete Roadmap</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Forward Deployed Engineer - Learning Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,1228 +13,499 @@
         }
 
         :root {
-            /* Vibrant new color scheme */
-            --bg: #0a0118;
-            --bg-secondary: #150828;
-            --card-bg: #1f0f3a;
-            --primary: #6366f1;
-            --secondary: #a855f7;
-            --accent: #14b8a6;
-            --success: #22c55e;
-            --warning: #f59e0b;
-            --danger: #f43f5e;
-            --text: #f8fafc;
-            --text-dim: #cbd5e1;
-            --text-muted: #94a3b8;
-            --glow: rgba(99, 102, 241, 0.3);
+            --bg: #0a0a0f;
+            --bg-elevated: #12121a;
+            --bg-card: #1a1a24;
+            --border: #2a2a3a;
+            --text-primary: #e8e8f0;
+            --text-secondary: #a8a8b8;
+            --text-muted: #6a6a7a;
+            --accent: #00d4aa;
+            --accent-dim: #00a07a;
+            --warning: #ff6b6b;
+            --code-bg: #0d0d14;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
             background: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-            line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 2rem;
         }
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 4rem 2rem;
+        /* Header */
+        header {
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid var(--border);
             margin-bottom: 3rem;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 20px var(--glow);
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #fff, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-dim);
-            max-width: 800px;
-            margin: 0 auto 2rem auto;
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
             line-height: 1.8;
         }
 
-        /* Role Intro Section */
-        .role-intro {
-            background: var(--card-bg);
-            border-radius: 24px;
-            padding: 3rem;
-            margin-bottom: 4rem;
-            border: 1px solid rgba(168, 85, 247, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        .role-intro h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--accent), var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .role-intro p {
-            color: var(--text-dim);
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .role-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .highlight-item {
-            background: var(--bg-secondary);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .highlight-item h3 {
-            color: var(--accent);
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+        h1 {
+            font-size: 3rem;
             font-weight: 700;
-        }
-
-        .highlight-item p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* Progress Path */
-        .progress-section {
-            margin: 4rem 0;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--accent), #00ffd5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .progress-path {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 4rem;
-        }
-
-        .path-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .path-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--card-bg);
-            border: 3px solid var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-        }
-
-        .path-circle::before {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-
-        .path-circle:hover {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 8px 32px var(--glow);
-        }
-
-        .path-circle:hover::before {
-            opacity: 0.3;
-        }
-
-        .path-label {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-dim);
-        }
-
-        .path-arrow {
-            color: var(--primary);
-            font-size: 2rem;
-            opacity: 0.6;
-        }
-
-        /* Phase Cards */
-        .roadmap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .phase-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 2.5rem;
-            border: 2px solid transparent;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .phase-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .phase-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 20px;
-            padding: 2px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .phase-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
-        }
-
-        .phase-card:hover::before,
-        .phase-card:hover::after {
-            opacity: 1;
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text);
-        }
-
-        .card-subtitle {
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 4rem 0 1.5rem;
             color: var(--accent);
-            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        h3 {
+            font-size: 1.3rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin: 2rem 0 1rem;
+            color: var(--text-primary);
         }
 
-        .card-desc {
-            color: var(--text-dim);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            line-height: 1.7;
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-secondary);
         }
 
-        .card-items {
+        /* Lists */
+        ul {
+            margin: 1.5rem 0;
+            padding-left: 0;
             list-style: none;
         }
 
-        .card-items li {
-            padding: 0.75rem 0;
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            transition: all 0.2s ease;
-        }
-
-        .card-items li:hover {
-            color: var(--accent);
-            transform: translateX(5px);
-        }
-
-        .card-items li::before {
-            content: '→';
-            color: var(--accent);
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
-
-        /* Projects Section */
-        .projects-section {
-            margin: 5rem 0;
-            padding: 4rem;
-            background: var(--card-bg);
-            border-radius: 24px;
-            border: 2px solid rgba(20, 184, 166, 0.2);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(20, 184, 166, 0.2);
-        }
-
-        .project-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent), var(--success));
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
+        ul li {
             margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .project-card h3 {
-            color: var(--text);
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-        }
-
-        .project-card p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .tech-tag {
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border: 1px solid rgba(99, 102, 241, 0.3);
-        }
-
-        /* Timeline */
-        .timeline-section {
-            margin: 5rem 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(168, 85, 247, 0.05));
-            border-radius: 24px;
-            padding: 4rem;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-
-        .timeline-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .week-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2rem;
-            border-left: 5px solid var(--primary);
-            transition: all 0.3s ease;
+            padding-left: 1.8rem;
             position: relative;
+            color: var(--text-secondary);
+            line-height: 1.8;
         }
 
-        .week-card:hover {
-            border-left-color: var(--accent);
-            transform: translateX(8px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Links */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* Code and inline elements */
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--code-bg);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent);
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        em {
+            color: var(--accent);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        /* Section Cards */
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .section-card h3 {
+            margin-top: 0;
+        }
+
+        /* Week Plan */
+        .week-plan {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .week-item {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
         }
 
         .week-number {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 12px var(--glow);
-        }
-
-        .week-title {
-            font-size: 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
             font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--text);
-        }
-
-        .week-desc {
-            font-size: 0.95rem;
-            color: var(--text-dim);
-            line-height: 1.7;
-        }
-
-        /* Avoid Section */
-        .avoid-section {
-            margin: 5rem 0;
-            padding: 4rem;
-            background: linear-gradient(135deg, rgba(244, 63, 94, 0.08), rgba(249, 115, 22, 0.08));
-            border-radius: 24px;
-            border: 2px solid rgba(244, 63, 94, 0.3);
-        }
-
-        .avoid-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .avoid-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 2px solid rgba(244, 63, 94, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .avoid-card:hover {
-            border-color: var(--danger);
-            transform: translateY(-4px);
-        }
-
-        .avoid-card h3 {
-            color: var(--danger);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .avoid-card p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 1000;
-            padding: 2rem;
-            overflow-y: auto;
-            backdrop-filter: blur(10px);
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: var(--card-bg);
-            border-radius: 24px;
-            padding: 3rem;
-            max-width: 1000px;
-            width: 100%;
-            position: relative;
-            animation: modalSlide 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border: 2px solid rgba(99, 102, 241, 0.3);
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
-        }
-
-        @keyframes modalSlide {
-            from { opacity: 0; transform: translateY(60px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: var(--danger);
-            color: white;
-            border: none;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            font-weight: 700;
-        }
-
-        .modal-close:hover {
-            transform: rotate(90deg) scale(1.1);
-            box-shadow: 0 8px 24px rgba(244, 63, 94, 0.4);
-        }
-
-        .modal-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .modal-resources {
-            list-style: none;
-        }
-
-        .modal-resources li {
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
-            transition: all 0.3s ease;
-        }
-
-        .modal-resources li:hover {
-            transform: translateX(8px);
-            border-left-color: var(--primary);
-        }
-
-        .modal-resources a {
             color: var(--accent);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
-        .modal-resources a:hover {
-            color: var(--primary);
+        .week-content {
+            color: var(--text-secondary);
         }
 
-        .modal-resources p {
-            margin-top: 0.75rem;
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            line-height: 1.7;
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        /* FAB */
-        .fab {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 8px 32px var(--glow);
-            font-size: 1.8rem;
-            transition: all 0.3s ease;
-            z-index: 999;
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
         }
 
-        .fab:hover {
-            transform: scale(1.15) rotate(15deg);
-            box-shadow: 0 12px 48px rgba(99, 102, 241, 0.5);
+        th {
+            background: var(--code-bg);
+            color: var(--accent);
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
         }
 
-        /* Responsive */
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 3px solid var(--warning);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .warning-box h3 {
+            margin-top: 0;
+            color: var(--warning);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 6rem;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            h1 {
+                font-size: 2rem;
             }
 
-            .roadmap-grid,
-            .projects-grid,
-            .timeline-grid {
-                grid-template-columns: 1fr;
+            h2 {
+                font-size: 1.5rem;
             }
 
-            .progress-path {
-                flex-direction: column;
-            }
-
-            .path-arrow {
-                transform: rotate(90deg);
+            .container {
+                padding: 0 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Hero -->
-        <div class="hero">
-            <div class="hero-badge">🚀 Your Path from SWE → FDE</div>
-            <h1>Forward Deployed<br>Engineer Roadmap</h1>
-            <p class="hero-subtitle">
-                Master LLM engineering, ship with customers, and land your dream role at frontier AI labs like Anthropic, OpenAI, or Google DeepMind
+        <header>
+            <h1>Forward Deployed Engineer<br>Learning Roadmap</h1>
+            <p class="subtitle">
+                A focused guide on what to learn (and where) to be ready for a Forward Deployed Engineer / Applied AI Engineer role at any frontier AI lab or enterprise AI company. Organized by topic, ordered roughly from foundations → advanced → role-shaped soft skills.
             </p>
-        </div>
+            <p class="subtitle">
+                Given a strong SWE background, the biggest deltas are usually: <strong>LLM-native engineering patterns</strong>, <strong>agent infrastructure</strong> (MCP, skills, sub-agents), <strong>evaluation discipline</strong>, and the <em>consulting</em> half of the job — discovery, scoping under ambiguity, and translating between executives and engineers.
+            </p>
+        </header>
 
-        <!-- Role Introduction -->
-        <div class="role-intro">
-            <h2>🎯 What is a Forward Deployed Engineer?</h2>
-            <p>
-                A Forward Deployed Engineer (FDE) is a unique hybrid role that sits at the intersection of cutting-edge AI engineering and hands-on customer delivery. Unlike traditional software engineers who build products in isolation, FDEs <strong>embed directly with strategic customers</strong> to architect, build, and deploy production AI systems that solve real business problems.
-            </p>
-            <p>
-                At companies like Anthropic, FDEs work within customer systems to build production applications with Claude models, deliver technical artifacts like MCP servers and agent skills, and provide white-glove deployment support in enterprise environments. You'll maintain deep knowledge of the latest LLM capabilities while building long-term relationships with customers and traveling 25-50% of the time.
-            </p>
-            <p style="color: var(--accent); font-weight: 600;">
-                This isn't just coding — it's combining engineering excellence with consulting skills, customer discovery, and the ability to thrive under ambiguity in complex organizations.
-            </p>
+        <main>
+            <h2>1. Foundations of LLM-native engineering</h2>
+            <p>The mental shift from "API that returns text" to "stochastic component you have to engineer around." Read broadly across labs — not just one.</p>
+            <ul>
+                <li><strong>Anthropic - Building Effective AI Agents</strong>: the canonical essay distinguishing <em>workflows</em> (predefined code paths) from <em>agents</em> (LLMs dynamically directing tool use). Covers prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer. <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank">Read essay →</a></li>
+                <li><strong>Anthropic - Effective Context Engineering for AI Agents</strong>: the follow-up, defining "context engineering" as the next phase after prompt engineering. <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank">Read essay →</a></li>
+                <li><strong>OpenAI - A Practical Guide to Building Agents</strong> (PDF): <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank">Download guide →</a></li>
+                <li><strong>Chip Huyen - AI Engineering</strong> (book): the most comprehensive practitioner text. Covers eval, RAG, fine-tuning tradeoffs, inference optimization end-to-end.</li>
+                <li><strong>Simon Willison's blog</strong>: pragmatic, current, vendor-agnostic. <a href="https://simonwillison.net" target="_blank">Visit blog →</a></li>
+                <li><strong>Hamel Husain's blog</strong>, especially the eval posts: <a href="https://hamel.dev" target="_blank">Visit blog →</a></li>
+                <li><strong>Eugene Yan's blog</strong>: applied ML and LLM patterns from a practitioner who's shipped at scale. <a href="https://eugeneyan.com" target="_blank">Visit blog →</a></li>
+            </ul>
 
-            <div class="role-highlights">
-                <div class="highlight-item">
-                    <h3>💼 The Work</h3>
-                    <p>Build production AI apps, ship MCP servers & agent skills, deploy at scale</p>
+            <h2>2. The major API surfaces</h2>
+            <p>You should be fluent in at least one frontier API end-to-end, and <em>literate</em> in the others — customers always ask "why not the other guy."</p>
+            <ul>
+                <li><strong>Anthropic Claude docs</strong>: <a href="https://docs.claude.com" target="_blank">docs.claude.com</a></li>
+                <li><strong>OpenAI API docs</strong>: <a href="https://platform.openai.com/docs" target="_blank">platform.openai.com/docs</a></li>
+                <li><strong>Google Gemini API docs</strong>: <a href="https://ai.google.dev/gemini-api/docs" target="_blank">ai.google.dev/gemini-api/docs</a></li>
+                <li><strong>Meta Llama (open weights)</strong>: <a href="https://www.llama.com" target="_blank">llama.com</a></li>
+            </ul>
+
+            <h3>Core concepts to internalize regardless of provider:</h3>
+            <ul>
+                <li>The chat completions / messages loop and streaming</li>
+                <li>Tool use / function calling — schema design, the tool_call → tool_result loop, parallel tool calls</li>
+                <li>Structured outputs (JSON mode, schemas)</li>
+                <li>Prompt caching (huge cost/latency lever in production)</li>
+                <li>Batch APIs (often 50% cost for non-realtime workloads)</li>
+                <li>Reasoning / extended-thinking models and when they're worth the latency</li>
+                <li>Context windows, attention budgets, and how performance degrades at the tail</li>
+            </ul>
+
+            <p><strong>Pick a deliberate sub-project</strong>: ship one real app on the API of your target lab, instrumented with caching + tool use + a proper eval harness. Forces depth.</p>
+
+            <h2>3. Prompt engineering and context engineering</h2>
+            <p>The literature is much better than it was a year ago.</p>
+            <ul>
+                <li><strong>Anthropic prompt engineering guide</strong>: <a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank">View guide →</a></li>
+                <li><strong>OpenAI prompting guide</strong>: <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank">View guide →</a></li>
+                <li><strong>DAIR.AI Prompt Engineering Guide</strong> (vendor-agnostic): <a href="https://www.promptingguide.ai" target="_blank">promptingguide.ai</a></li>
+            </ul>
+
+            <p>Patterns worth being fluent in: few-shot, chain-of-thought, XML/structured tagging, prefilling, self-consistency, ReAct, reflexion, plan-and-execute.</p>
+
+            <h2>4. Agent infrastructure and protocols</h2>
+            <p>This is where most enterprise FDE work lives today. The patterns are converging across labs.</p>
+            <ul>
+                <li><strong>Model Context Protocol (MCP)</strong> — open standard for connecting LLMs to tools and data. Originated at Anthropic but adopted broadly. <a href="https://modelcontextprotocol.io" target="_blank">modelcontextprotocol.io</a> and <a href="https://github.com/modelcontextprotocol" target="_blank">GitHub →</a></li>
+                <li><strong>Agent Skills</strong> — open standard for packaging procedural knowledge (a SKILL.md + scripts) that an agent loads on demand. <a href="https://agentskills.io" target="_blank">agentskills.io</a></li>
+                <li><strong>OpenAI Agents SDK</strong>: <a href="https://openai.github.io/openai-agents-python/" target="_blank">Documentation →</a></li>
+                <li><strong>LangGraph</strong> (LangChain's graph-based orchestrator): <a href="https://langchain-ai.github.io/langgraph/" target="_blank">Documentation →</a></li>
+                <li><strong>CrewAI, AutoGen, Mastra</strong>: know they exist, know the tradeoffs. Most senior engineers in this space prefer thinner abstractions over heavyweight frameworks.</li>
+            </ul>
+
+            <p><strong>Concrete build to do once</strong>: ship one MCP server publicly. Pick something an enterprise would actually care about (e.g. a wrapper around an internal API shape — Jira-like, ServiceNow-like, Salesforce-like). Two transports (stdio + HTTP), one weekend.</p>
+
+            <h2>5. Retrieval and RAG (without over-indexing)</h2>
+            <p>RAG is no longer the centerpiece it was in 2023, but you need to know it cold because most enterprise deployments still involve it.</p>
+            <ul>
+                <li><strong>Anthropic - Contextual Retrieval</strong>: <a href="https://www.anthropic.com/news/contextual-retrieval" target="_blank">Read more →</a></li>
+                <li><strong>Pinecone Learning Center</strong>: <a href="https://www.pinecone.io/learn/" target="_blank">pinecone.io/learn</a></li>
+                <li><strong>LlamaIndex docs</strong>: <a href="https://docs.llamaindex.ai" target="_blank">docs.llamaindex.ai</a></li>
+                <li><strong>Eugene Yan - "Patterns for Building LLM-based Systems & Products"</strong>: <a href="https://eugeneyan.com/writing/llm-patterns/" target="_blank">Read article →</a></li>
+            </ul>
+
+            <p>Things to actually understand: chunking strategies, hybrid search (BM25 + dense), reranking, evaluation (recall@k, MRR), when to use a graph/structured approach instead. Don't spend weeks building a vector DB from scratch — understand at the level of "when to use it, how to evaluate it."</p>
+
+            <h2>6. Evaluation frameworks (the part most engineers underweight)</h2>
+            <p>FDEs ship things to customers who need to justify spend. <strong>No evals = no production deployment.</strong></p>
+            <ul>
+                <li><strong>Hamel Husain - "Your AI Product Needs Evals"</strong>: <a href="https://hamel.dev/blog/posts/evals/" target="_blank">Required reading →</a></li>
+                <li><strong>Anthropic eval docs</strong>: <a href="https://docs.claude.com/en/docs/test-and-evaluate/develop-tests" target="_blank">Documentation →</a></li>
+                <li><strong>OpenAI Evals</strong> (framework + cookbook): <a href="https://github.com/openai/evals" target="_blank">GitHub →</a></li>
+                <li><strong>Inspect AI</strong> (UK AISI's open-source framework, widely used in enterprise): <a href="https://inspect.ai-safety-institute.org.uk/" target="_blank">inspect.ai-safety-institute.org.uk</a></li>
+                <li><strong>Braintrust</strong>: <a href="https://www.braintrust.dev" target="_blank">braintrust.dev</a></li>
+                <li><strong>Langfuse</strong> (open-source): <a href="https://langfuse.com" target="_blank">langfuse.com</a></li>
+                <li><strong>Promptfoo</strong>: <a href="https://www.promptfoo.dev" target="_blank">promptfoo.dev</a></li>
+            </ul>
+
+            <p>Patterns to learn: LLM-as-judge (and its failure modes), pairwise comparison, rubric-based grading, golden datasets, regression suites, online eval via user signals.</p>
+
+            <p><strong>Pick one framework and ship an eval harness with it.</strong> The framework matters less than having done it once seriously.</p>
+
+            <h2>7. Observability, security, and safety</h2>
+            <p>The boring parts that determine whether a deployment actually survives in production.</p>
+
+            <h3>Observability</h3>
+            <ul>
+                <li>Langfuse, Braintrust, <strong>Arize Phoenix</strong>: <a href="https://phoenix.arize.com" target="_blank">phoenix.arize.com</a></li>
+                <li><strong>Helicone</strong>: <a href="https://www.helicone.ai" target="_blank">helicone.ai</a></li>
+                <li>Patterns: trace every LLM call, log prompts + completions + tokens + latency + cost, sample for offline eval.</li>
+            </ul>
+
+            <h3>Security</h3>
+            <ul>
+                <li><strong>OWASP Top 10 for LLM Applications</strong>: <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">Read →</a></li>
+                <li><strong>Simon Willison's prompt injection writing</strong>: <a href="https://simonwillison.net/tags/prompt-injection/" target="_blank">Read →</a></li>
+                <li><strong>NIST AI Risk Management Framework</strong>: <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank">Read →</a></li>
+            </ul>
+
+            <h2>8. Enterprise vertical context</h2>
+            <p>The JD almost always calls out "financial services, healthcare/life sciences, or another enterprise vertical" as a plus. Pick one and go deep enough to hold a 30-minute discovery conversation with a domain expert.</p>
+
+            <ul>
+                <li><strong>Financial services</strong>: SR 11-7 (model risk management), trade lifecycle basics, KYC/AML workflows, how compliance reviews AI systems. Reference customers: Bridgewater, Brex, JPMorgan's AI work.</li>
+                <li><strong>Healthcare / life sciences</strong>: HIPAA, PHI handling, FDA's framework for AI/ML-based SaMD, clinical documentation workflows, EHR integration patterns.</li>
+                <li><strong>Legal</strong>: contract review workflows, document retention, privilege. Reference companies: Harvey, Hebbia, Ironclad.</li>
+                <li><strong>Customer service / CX</strong>: ticketing, deflection, agent assist, voice. Reference companies: Intercom (Fin), Sierra, Decagon.</li>
+            </ul>
+
+            <p>Each frontier lab publishes customer stories — read 5-10 across verticals to see what real deployments look like.</p>
+
+            <h2>9. The forward-deployed motion (the <em>consulting</em> half)</h2>
+            <p>This is what most engineers underweight, and it's often what separates strong FDE candidates from strong SWE candidates.</p>
+
+            <ul>
+                <li><strong>Palantir FDE writing</strong> — Palantir invented this role. Read their playbook: <a href="https://blog.palantir.com/a-day-in-the-life-of-a-palantir-forward-deployed-software-engineer-45ef2de257b1" target="_blank">Day in the life →</a> and search YouTube for "Palantir forward deployed" talks.</li>
+                <li><strong>The Mom Test</strong> by Rob Fitzpatrick — short book, the customer-discovery bible.</li>
+                <li><strong>SPIN Selling</strong> by Neil Rackham — the question structure FDEs use in technical scoping calls.</li>
+                <li><strong>The Pyramid Principle</strong> by Barbara Minto — writing/communicating for executives.</li>
+                <li><strong>An Elegant Puzzle</strong> by Will Larson, and his blog <a href="https://lethain.com" target="_blank">lethain.com</a> — working under ambiguity at staff level.</li>
+                <li><strong>High Output Management</strong> by Andy Grove — still the best book on managing throughput across functions.</li>
+            </ul>
+
+            <p>A practical exercise: take one of your past complex projects and write it up as a case study — situation, customer/stakeholder goal, constraints, what you built, measured outcome. FDE interview loops lean heavily on these.</p>
+
+            <h2>10. Building your evidence portfolio (what to ship before applying)</h2>
+            <p>Concrete artifacts an interviewer can read in 10 minutes carry more weight than anything else. Aim for 3-4 of these:</p>
+
+            <ol style="list-style: decimal; padding-left: 2rem;">
+                <li><strong>An MCP server</strong> for a non-trivial enterprise-shaped API. Open-source on GitHub with a clear README and a 60-second demo video.</li>
+                <li><strong>A custom Agent Skill</strong> (or equivalent for whichever lab you're targeting) that does something you actually use.</li>
+                <li><strong>A small agent</strong> that solves a real workflow you do every week. Show eval results, not just the demo.</li>
+                <li><strong>A teardown post</strong>: pick one of the frontier engineering posts above, implement the pattern, write 800-1200 words on what worked and what didn't. This is exactly the kind of artifact FDEs produce internally.</li>
+                <li><strong>A "deployment pattern" writeup</strong>: pick a customer profile (e.g. "mid-size insurance company doing claims triage"), sketch the architecture (which cloud, RAG approach, eval setup, guardrails). One page.</li>
+            </ol>
+
+            <h2>11. Suggested 8-week sequence</h2>
+            <div class="week-plan">
+                <div class="week-item">
+                    <div class="week-number">WEEK 1</div>
+                    <div class="week-content">Rebuild one piece of an existing app of yours on a frontier API with tool use + prompt caching.</div>
                 </div>
-                <div class="highlight-item">
-                    <h3>🤝 The Environment</h3>
-                    <p>Embed with customers, travel 25-50%, represent company in the field</p>
+                <div class="week-item">
+                    <div class="week-number">WEEK 2</div>
+                    <div class="week-content">MCP. Ship one MCP server publicly.</div>
                 </div>
-                <div class="highlight-item">
-                    <h3>🎓 Required Skills</h3>
-                    <p>4+ years technical role, LLM production experience, high agency mindset</p>
+                <div class="week-item">
+                    <div class="week-number">WEEK 3</div>
+                    <div class="week-content">Agent Skills (or your target lab's equivalent). Read 3 reference skills. Ship one custom skill that composes with your MCP server.</div>
                 </div>
-                <div class="highlight-item">
-                    <h3>💰 Compensation</h3>
-                    <p>Anthropic London: £225k-£255k. SF/NY typically $250k-$350k+</p>
+                <div class="week-item">
+                    <div class="week-number">WEEK 4</div>
+                    <div class="week-content">Evals. Pick one framework. Add an eval harness to the Week 1 project. Get a baseline number.</div>
+                </div>
+                <div class="week-item">
+                    <div class="week-number">WEEK 5</div>
+                    <div class="week-content">Multi-agent + sub-agents. Build one orchestrator + 2 sub-agents pattern.</div>
+                </div>
+                <div class="week-item">
+                    <div class="week-number">WEEK 6</div>
+                    <div class="week-content">Deployment surfaces. Deploy your agent to Bedrock or Vertex. Document the security model and data flow.</div>
+                </div>
+                <div class="week-item">
+                    <div class="week-number">WEEK 7</div>
+                    <div class="week-content">Vertical depth. Pick one vertical from §9. Build a domain-shaped demo on top of your existing infrastructure.</div>
+                </div>
+                <div class="week-item">
+                    <div class="week-number">WEEK 8</div>
+                    <div class="week-content">Polish. Write up 2-3 artifacts as case studies. Practice talking through them out loud — discovery questions, tradeoffs, what you'd do differently.</div>
                 </div>
             </div>
-        </div>
 
-        <!-- Progress Path -->
-        <div class="progress-section">
-            <h2 class="section-title">📍 Your Learning Journey</h2>
-            <div class="progress-path">
-                <div class="path-step">
-                    <div class="path-circle" onclick="openModal('foundations')">1</div>
-                    <div class="path-label">Foundations</div>
-                </div>
-                <div class="path-arrow">→</div>
-                <div class="path-step">
-                    <div class="path-circle" onclick="openModal('agents')">2</div>
-                    <div class="path-label">Agents</div>
-                </div>
-                <div class="path-arrow">→</div>
-                <div class="path-step">
-                    <div class="path-circle" onclick="openModal('production')">3</div>
-                    <div class="path-label">Production</div>
-                </div>
-                <div class="path-arrow">→</div>
-                <div class="path-step">
-                    <div class="path-circle" onclick="openModal('enterprise')">4</div>
-                    <div class="path-label">Enterprise</div>
-                </div>
-                <div class="path-arrow">→</div>
-                <div class="path-step">
-                    <div class="path-circle" onclick="openModal('portfolio')">5</div>
-                    <div class="path-label">Ship</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Phase Cards -->
-        <div class="roadmap-grid">
-            <div class="phase-card" onclick="openModal('foundations')">
-                <div class="card-header">
-                    <div class="card-icon">📚</div>
-                    <div>
-                        <div class="card-subtitle">Phase 1 • 2-3 weeks</div>
-                        <div class="card-title">Foundations</div>
-                    </div>
-                </div>
-                <p class="card-desc">Master LLM-native thinking, frontier APIs, and prompt engineering patterns</p>
-                <ul class="card-items">
-                    <li>LLM engineering patterns (workflows vs agents)</li>
-                    <li>Claude, OpenAI, Gemini API deep-dive</li>
-                    <li>Advanced prompt engineering & tool use</li>
-                    <li>Context caching & structured outputs</li>
+            <div class="warning-box">
+                <h3>12. Things explicitly worth <em>not</em> over-investing in</h3>
+                <ul>
+                    <li><strong>Building a vector DB from scratch.</strong> The job is about deploying LLMs well, not winning a RAG benchmark.</li>
+                    <li><strong>Fine-tuning.</strong> Most frontier labs' top models aren't user-fine-tunable, and the FDE motion almost never needs it. Knowing <em>why</em> prompting + context engineering replace most fine-tuning use cases is more valuable than fine-tuning skill itself.</li>
+                    <li><strong>Framework depth for its own sake.</strong> Know LangChain / LlamaIndex / CrewAI exist; customers use them. Don't build your reference implementations on top of heavyweight frameworks — most senior engineers in this space prefer thin, direct API calls.</li>
+                    <li><strong>Chasing every new model release.</strong> Frontier moves weekly. Build for capability classes (reasoning / tool-using / cheap-and-fast / multimodal), not specific model names.</li>
                 </ul>
             </div>
 
-            <div class="phase-card" onclick="openModal('agents')">
-                <div class="card-header">
-                    <div class="card-icon">🤖</div>
-                    <div>
-                        <div class="card-subtitle">Phase 2 • 2-3 weeks</div>
-                        <div class="card-title">Agent Systems</div>
-                    </div>
-                </div>
-                <p class="card-desc">Build production agents with MCP, Skills, and orchestration patterns</p>
-                <ul class="card-items">
-                    <li>Model Context Protocol (MCP)</li>
-                    <li>Agent Skills standard</li>
-                    <li>Multi-agent orchestration</li>
-                    <li>RAG when you actually need it</li>
-                </ul>
-            </div>
+            <h2>Quick-reference links</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MCP</td>
+                        <td><a href="https://modelcontextprotocol.io" target="_blank">modelcontextprotocol.io</a></td>
+                    </tr>
+                    <tr>
+                        <td>Agent Skills standard</td>
+                        <td><a href="https://agentskills.io" target="_blank">agentskills.io</a></td>
+                    </tr>
+                    <tr>
+                        <td>Anthropic engineering blog</td>
+                        <td><a href="https://www.anthropic.com/engineering" target="_blank">anthropic.com/engineering</a></td>
+                    </tr>
+                    <tr>
+                        <td>OpenAI agents guide</td>
+                        <td><a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank">Download PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Google Gemini docs</td>
+                        <td><a href="https://ai.google.dev/gemini-api/docs" target="_blank">ai.google.dev/gemini-api/docs</a></td>
+                    </tr>
+                    <tr>
+                        <td>Hamel on evals</td>
+                        <td><a href="https://hamel.dev/blog/posts/evals/" target="_blank">hamel.dev/blog/posts/evals</a></td>
+                    </tr>
+                    <tr>
+                        <td>Simon Willison</td>
+                        <td><a href="https://simonwillison.net" target="_blank">simonwillison.net</a></td>
+                    </tr>
+                    <tr>
+                        <td>Eugene Yan</td>
+                        <td><a href="https://eugeneyan.com" target="_blank">eugeneyan.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>OWASP LLM Top 10</td>
+                        <td><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">OWASP project</a></td>
+                    </tr>
+                    <tr>
+                        <td>Inspect AI</td>
+                        <td><a href="https://inspect.ai-safety-institute.org.uk/" target="_blank">inspect.ai-safety-institute.org.uk</a></td>
+                    </tr>
+                    <tr>
+                        <td>Palantir FDE post</td>
+                        <td><a href="https://blog.palantir.com/a-day-in-the-life-of-a-palantir-forward-deployed-software-engineer-45ef2de257b1" target="_blank">Day in the life</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
 
-            <div class="phase-card" onclick="openModal('production')">
-                <div class="card-header">
-                    <div class="card-icon">⚡</div>
-                    <div>
-                        <div class="card-subtitle">Phase 3 • 2 weeks</div>
-                        <div class="card-title">Production</div>
-                    </div>
-                </div>
-                <p class="card-desc">Ship systems that survive in production with evals, security, and observability</p>
-                <ul class="card-items">
-                    <li>Evaluation frameworks (LLM-as-judge, metrics)</li>
-                    <li>Observability & monitoring</li>
-                    <li>Security (OWASP Top 10, prompt injection)</li>
-                    <li>Cloud deployment (Bedrock, Vertex)</li>
-                </ul>
-            </div>
-
-            <div class="phase-card" onclick="openModal('enterprise')">
-                <div class="card-header">
-                    <div class="card-icon">🏢</div>
-                    <div>
-                        <div class="card-subtitle">Phase 4 • 1-2 weeks</div>
-                        <div class="card-title">Enterprise</div>
-                    </div>
-                </div>
-                <p class="card-desc">Learn vertical depth and master the consulting half of the FDE role</p>
-                <ul class="card-items">
-                    <li>Pick a vertical (fintech, healthcare, legal)</li>
-                    <li>Customer discovery & technical scoping</li>
-                    <li>Executive communication</li>
-                    <li>Deployment patterns by industry</li>
-                </ul>
-            </div>
-
-            <div class="phase-card" onclick="openModal('portfolio')">
-                <div class="card-header">
-                    <div class="card-icon">💼</div>
-                    <div>
-                        <div class="card-subtitle">Phase 5 • Ongoing</div>
-                        <div class="card-title">Portfolio</div>
-                    </div>
-                </div>
-                <p class="card-desc">Ship 3-4 artifacts that prove you can do the job</p>
-                <ul class="card-items">
-                    <li>1 MCP server (public GitHub)</li>
-                    <li>1 Agent Skill that solves a real problem</li>
-                    <li>1 Small agent with eval harness</li>
-                    <li>Case study writeups</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Real-World Projects -->
-        <div class="projects-section">
-            <h2 class="section-title">🛠️ Real Projects to Build</h2>
-            <p style="text-align: center; color: var(--text-dim); font-size: 1.1rem; max-width: 800px; margin: 0 auto 3rem auto;">
-                These aren't toy examples — they're production-ready systems that demonstrate FDE skills. Pick 2-3 and ship them.
-            </p>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <span class="project-badge">RAG Application</span>
-                    <h3>Internal Documentation Q&A</h3>
-                    <p>Build a RAG system that answers questions from your company's docs/wikis. Implement contextual retrieval, hybrid search, and reranking.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Claude API</span>
-                        <span class="tech-tag">Pinecone</span>
-                        <span class="tech-tag">Reranking</span>
-                        <span class="tech-tag">Evals</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-badge">MCP Server</span>
-                    <h3>GitHub Issues MCP</h3>
-                    <p>Create an MCP server that lets agents manage GitHub issues, PRs, and comments. Implement both stdio and HTTP transports.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">MCP Protocol</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">GitHub API</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-badge">Evaluation</span>
-                    <h3>Email Classification Eval Harness</h3>
-                    <p>Build eval framework for email triage (support/sales/spam). Use LLM-as-judge, pairwise comparison, and golden datasets.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Inspect AI</span>
-                        <span class="tech-tag">LLM-as-judge</span>
-                        <span class="tech-tag">Metrics</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-badge">Agent Workflow</span>
-                    <h3>Sales Research Agent</h3>
-                    <p>Multi-agent system: web search for company info → LinkedIn lookup → competitive analysis → generate personalized outreach.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Multi-agent</span>
-                        <span class="tech-tag">Tool use</span>
-                        <span class="tech-tag">Orchestration</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-badge">Agent Skill</span>
-                    <h3>SQL Query Generator Skill</h3>
-                    <p>Package procedural knowledge for writing SQL from natural language. Include schema understanding, query validation, example queries.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Agent Skills</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">SKILL.md</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-badge">Production Deploy</span>
-                    <h3>Customer Support Bot (AWS)</h3>
-                    <p>Deploy ticket triage bot to production on Bedrock. Include observability (Langfuse), security (rate limits), and eval monitoring.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">AWS Bedrock</span>
-                        <span class="tech-tag">Langfuse</span>
-                        <span class="tech-tag">Production</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-badge">Enterprise Use Case</span>
-                    <h3>Contract Review Assistant</h3>
-                    <p>Legal vertical: Extract key terms from contracts, flag risky clauses, compare to templates. Demo with real contracts (redacted).</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Legal vertical</span>
-                        <span class="tech-tag">PDF parsing</span>
-                        <span class="tech-tag">Extraction</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-badge">Data Analysis</span>
-                    <h3>Financial Statement Analyzer</h3>
-                    <p>Fintech vertical: Parse 10-K filings, extract financials, compute ratios, generate analysis. Use tool calling for calculations.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Fintech vertical</span>
-                        <span class="tech-tag">Tool calling</span>
-                        <span class="tech-tag">SEC data</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-badge">Observability</span>
-                    <h3>LLM Cost & Latency Dashboard</h3>
-                    <p>Instrument an agent with full observability: trace every call, log tokens/cost/latency, build dashboard. Use Braintrust or Langfuse.</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Observability</span>
-                        <span class="tech-tag">Metrics</span>
-                        <span class="tech-tag">Dashboard</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Timeline -->
-        <div class="timeline-section">
-            <h2 class="section-title">📅 8-Week Execution Plan</h2>
-            <p style="text-align: center; color: var(--text-dim); font-size: 1.1rem; margin-bottom: 3rem;">
-                The fastest path from where you are to interview-ready. Follow this week by week.
-            </p>
-            <div class="timeline-grid">
-                <div class="week-card">
-                    <span class="week-number">Week 1</span>
-                    <h3 class="week-title">API Fundamentals</h3>
-                    <p class="week-desc">Rebuild an existing app on a frontier API. Add tool use + prompt caching. Ship something you can demo.</p>
-                </div>
-                <div class="week-card">
-                    <span class="week-number">Week 2</span>
-                    <h3 class="week-title">MCP Server</h3>
-                    <p class="week-desc">Ship one MCP server publicly on GitHub. Pick an enterprise API (Jira-like, Slack-like). Both stdio + HTTP.</p>
-                </div>
-                <div class="week-card">
-                    <span class="week-number">Week 3</span>
-                    <h3 class="week-title">Agent Skills</h3>
-                    <p class="week-desc">Read 3 reference skills from agentskills.io. Ship one custom skill that composes with your MCP server.</p>
-                </div>
-                <div class="week-card">
-                    <span class="week-number">Week 4</span>
-                    <h3 class="week-title">Evaluation Harness</h3>
-                    <p class="week-desc">Add eval framework to Week 1 project. Get baseline metrics. Use Inspect AI or Braintrust.</p>
-                </div>
-                <div class="week-card">
-                    <span class="week-number">Week 5</span>
-                    <h3 class="week-title">Multi-Agent System</h3>
-                    <p class="week-desc">Build 1 orchestrator + 2 sub-agents. Pick a workflow that needs multiple steps (research → analysis → output).</p>
-                </div>
-                <div class="week-card">
-                    <span class="week-number">Week 6</span>
-                    <h3 class="week-title">Production Deploy</h3>
-                    <p class="week-desc">Deploy your agent to Bedrock or Vertex. Document security model, data flow, and observability setup.</p>
-                </div>
-                <div class="week-card">
-                    <span class="week-number">Week 7</span>
-                    <h3 class="week-title">Vertical Depth</h3>
-                    <p class="week-desc">Pick one vertical (fintech, healthcare, legal). Build domain-shaped demo on top of existing infrastructure.</p>
-                </div>
-                <div class="week-card">
-                    <span class="week-number">Week 8</span>
-                    <h3 class="week-title">Polish & Document</h3>
-                    <p class="week-desc">Write up 2-3 projects as case studies. Practice explaining them out loud. Prep for interviews.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Avoid Section -->
-        <div class="avoid-section">
-            <h2 class="section-title">⚠️ Don't Over-Invest In</h2>
-            <p style="text-align: center; color: var(--text-dim); font-size: 1.1rem; margin-bottom: 3rem;">
-                Save your time and energy. These won't help you land the role.
-            </p>
-            <div class="avoid-grid">
-                <div class="avoid-card">
-                    <h3>❌ Building Vector DBs from Scratch</h3>
-                    <p>The job is about deploying LLMs well, not winning RAG benchmarks. Use Pinecone/Weaviate and focus on the retrieval strategy.</p>
-                </div>
-                <div class="avoid-card">
-                    <h3>❌ Fine-tuning</h3>
-                    <p>Top frontier models aren't user-fine-tunable. Knowing why prompting + context engineering replace fine-tuning is more valuable than doing it.</p>
-                </div>
-                <div class="avoid-card">
-                    <h3>❌ Framework Depth for Its Own Sake</h3>
-                    <p>Know LangChain/LlamaIndex/CrewAI exist. Don't build your demos on heavyweight frameworks — senior engineers prefer thin, direct API calls.</p>
-                </div>
-                <div class="avoid-card">
-                    <h3>❌ Chasing Every Model Release</h3>
-                    <p>Frontier moves weekly. Build for capability classes (reasoning/tool-using/cheap-and-fast/multimodal), not specific model names.</p>
-                </div>
-            </div>
-        </div>
+        <footer>
+            <p>Built by <a href="https://github.com/shariqbinrashid" target="_blank">Shariq Bin Rashid</a> | Learning Forward Deployed Engineering</p>
+        </footer>
     </div>
-
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <h2 class="modal-title" id="modalTitle"></h2>
-            <div id="modalBody"></div>
-        </div>
-    </div>
-
-    <!-- FAB -->
-    <button class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">↑</button>
-
-    <script>
-        const modalData = {
-            foundations: {
-                title: '📚 Phase 1: Foundations',
-                content: `
-                    <p style="color: var(--text-dim); margin-bottom: 2rem; font-size: 1.1rem;">The mental shift from "API that returns text" to "stochastic component you engineer around."</p>
-                    <h3 style="font-size: 1.5rem; margin: 2rem 0 1rem 0; color: var(--accent);">Essential Reading</h3>
-                    <ul class="modal-resources">
-                        <li>
-                            <strong>Anthropic — Building Effective Agents</strong><br>
-                            <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank">www.anthropic.com/engineering/building-effective-agents →</a>
-                            <p>The canonical essay: workflows vs agents, prompt chaining, orchestrator-workers, evaluator-optimizer patterns.</p>
-                        </li>
-                        <li>
-                            <strong>Anthropic — Effective Context Engineering</strong><br>
-                            <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank">Read the follow-up →</a>
-                        </li>
-                        <li>
-                            <strong>OpenAI — Practical Guide to Agents (PDF)</strong><br>
-                            <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf" target="_blank">Download PDF →</a>
-                        </li>
-                        <li>
-                            <strong>Frontier API Documentation</strong><br>
-                            <a href="https://docs.claude.com" target="_blank">Claude</a> | 
-                            <a href="https://platform.openai.com/docs" target="_blank">OpenAI</a> | 
-                            <a href="https://ai.google.dev/gemini-api/docs" target="_blank">Gemini</a>
-                        </li>
-                        <li>
-                            <strong>Simon Willison's Blog</strong><br>
-                            <a href="https://simonwillison.net" target="_blank">simonwillison.net →</a>
-                            <p>Pragmatic, current, vendor-agnostic. Subscribe to the feed.</p>
-                        </li>
-                    </ul>
-                    <h3 style="font-size: 1.5rem; margin: 2rem 0 1rem 0; color: var(--primary);">Core Concepts</h3>
-                    <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary);">
-                        <ul style="list-style: none; color: var(--text-dim); line-height: 2;">
-                            <li>✓ Chat completions / messages loop & streaming</li>
-                            <li>✓ Tool use / function calling (schema design, parallel calls)</li>
-                            <li>✓ Prompt caching (huge cost/latency lever)</li>
-                            <li>✓ Structured outputs (JSON mode, schemas)</li>
-                            <li>✓ Context windows & attention budgets</li>
-                            <li>✓ Batch APIs (50% cost savings)</li>
-                        </ul>
-                    </div>
-                `
-            },
-            agents: {
-                title: '🤖 Phase 2: Agent Systems',
-                content: `
-                    <p style="color: var(--text-dim); margin-bottom: 2rem; font-size: 1.1rem;">Where most enterprise FDE work lives today. Patterns converging across labs.</p>
-                    <h3 style="font-size: 1.5rem; margin: 2rem 0 1rem 0; color: var(--accent);">Agent Infrastructure</h3>
-                    <ul class="modal-resources">
-                        <li>
-                            <strong>Model Context Protocol (MCP)</strong><br>
-                            <a href="https://modelcontextprotocol.io" target="_blank">modelcontextprotocol.io →</a>
-                            <p>Open standard for connecting LLMs to tools & data. Originated at Anthropic, adopted broadly.</p>
-                        </li>
-                        <li>
-                            <strong>Agent Skills Standard</strong><br>
-                            <a href="https://agentskills.io" target="_blank">agentskills.io →</a>
-                            <p>Package procedural knowledge (SKILL.md + scripts) that agents load on demand.</p>
-                        </li>
-                        <li>
-                            <strong>LangGraph</strong><br>
-                            <a href="https://langchain-ai.github.io/langgraph/" target="_blank">Graph-based orchestrator →</a>
-                        </li>
-                        <li>
-                            <strong>OpenAI Agents SDK</strong><br>
-                            <a href="https://openai.github.io/openai-agents-python/" target="_blank">Python SDK →</a>
-                        </li>
-                    </ul>
-                    <div style="background: rgba(20, 184, 166, 0.1); padding: 1.5rem; border-radius: 12px; margin-top: 2rem; border: 2px solid rgba(20, 184, 166, 0.3);">
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">💡 Your Build</h3>
-                        <p style="color: var(--text-dim);">Ship one MCP server publicly. Pick an enterprise API shape (Jira-like, Salesforce-like, Slack-like). Implement both stdio + HTTP transports. One weekend project.</p>
-                    </div>
-                `
-            },
-            production: {
-                title: '⚡ Phase 3: Production Ready',
-                content: `
-                    <p style="color: var(--text-dim); margin-bottom: 2rem; font-size: 1.1rem;">The boring parts that determine if your deployment survives in the wild.</p>
-                    <h3 style="font-size: 1.5rem; margin: 2rem 0 1rem 0; color: var(--danger);">Evaluation (Critical!)</h3>
-                    <ul class="modal-resources">
-                        <li>
-                            <strong>⚠️ Hamel Husain — "Your AI Product Needs Evals"</strong><br>
-                            <a href="https://hamel.dev/blog/posts/evals/" target="_blank">Required reading →</a>
-                            <p style="color: var(--danger); font-weight: 600;">No evals = no production deployment. This is the most underweighted part.</p>
-                        </li>
-                        <li>
-                            <strong>Inspect AI (UK AISI)</strong><br>
-                            <a href="https://inspect.ai-safety-institute.org.uk/" target="_blank">inspect.ai-safety-institute.org.uk →</a>
-                            <p>Open-source eval framework, widely used in enterprise.</p>
-                        </li>
-                        <li>
-                            <strong>Braintrust</strong><br>
-                            <a href="https://www.braintrust.dev" target="_blank">www.braintrust.dev →</a>
-                        </li>
-                        <li>
-                            <strong>Langfuse (Open-Source)</strong><br>
-                            <a href="https://langfuse.com" target="_blank">langfuse.com →</a>
-                        </li>
-                    </ul>
-                    <h3 style="font-size: 1.5rem; margin: 2rem 0 1rem 0; color: var(--primary);">Security & Observability</h3>
-                    <ul class="modal-resources">
-                        <li>
-                            <strong>OWASP Top 10 for LLMs</strong><br>
-                            <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">Security guide →</a>
-                        </li>
-                        <li>
-                            <strong>Simon Willison on Prompt Injection</strong><br>
-                            <a href="https://simonwillison.net/tags/prompt-injection/" target="_blank">Essential reading →</a>
-                        </li>
-                    </ul>
-                `
-            },
-            enterprise: {
-                title: '🏢 Phase 4: Enterprise Context',
-                content: `
-                    <p style="color: var(--text-dim); margin-bottom: 2rem; font-size: 1.1rem;">Pick one vertical. Go deep enough to hold a 30-minute discovery call with a domain expert.</p>
-                    <h3 style="font-size: 1.5rem; margin: 2rem 0 1rem 0; color: var(--accent);">Vertical Options</h3>
-                    <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
-                        <div style="margin-bottom: 2rem;">
-                            <h4 style="color: var(--primary); margin-bottom: 0.5rem; font-size: 1.2rem;">💰 Financial Services</h4>
-                            <p style="color: var(--text-dim);">SR 11-7 (model risk), KYC/AML workflows, trade lifecycle, compliance review process</p>
-                            <p style="color: var(--text-muted); font-style: italic; margin-top: 0.5rem;">Reference: Bridgewater, Brex, JPMorgan AI work</p>
-                        </div>
-                        <div style="margin-bottom: 2rem;">
-                            <h4 style="color: var(--primary); margin-bottom: 0.5rem; font-size: 1.2rem;">🏥 Healthcare / Life Sciences</h4>
-                            <p style="color: var(--text-dim);">HIPAA, PHI handling, FDA AI/ML-based SaMD framework, EHR integration, clinical docs</p>
-                        </div>
-                        <div style="margin-bottom: 2rem;">
-                            <h4 style="color: var(--primary); margin-bottom: 0.5rem; font-size: 1.2rem;">⚖️ Legal</h4>
-                            <p style="color: var(--text-dim);">Contract review, document retention, privilege</p>
-                            <p style="color: var(--text-muted); font-style: italic; margin-top: 0.5rem;">Reference: Harvey, Hebbia, Ironclad</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--primary); margin-bottom: 0.5rem; font-size: 1.2rem;">🎧 Customer Service</h4>
-                            <p style="color: var(--text-dim);">Ticketing, deflection, agent assist, voice</p>
-                            <p style="color: var(--text-muted); font-style: italic; margin-top: 0.5rem;">Reference: Intercom (Fin), Sierra, Decagon</p>
-                        </div>
-                    </div>
-                    <h3 style="font-size: 1.5rem; margin: 2rem 0 1rem 0; color: var(--primary);">Consulting Skills</h3>
-                    <ul class="modal-resources">
-                        <li>
-                            <strong>Palantir FDE Blog</strong><br>
-                            <a href="https://blog.palantir.com/a-day-in-the-life-of-a-palantir-forward-deployed-software-engineer-45ef2de257b1" target="_blank">Day in the life →</a>
-                            <p>Palantir invented this role. Essential reading.</p>
-                        </li>
-                        <li>
-                            <strong>Books</strong>
-                            <p>The Mom Test (customer discovery) • SPIN Selling (technical scoping) • The Pyramid Principle (exec communication)</p>
-                        </li>
-                    </ul>
-                `
-            },
-            portfolio: {
-                title: '💼 Phase 5: Portfolio',
-                content: `
-                    <p style="color: var(--text-dim); margin-bottom: 2rem; font-size: 1.1rem;">Concrete artifacts an interviewer can review in 10 minutes. These carry more weight than anything else.</p>
-                    <h3 style="font-size: 1.5rem; margin: 2rem 0 1rem 0; color: var(--accent);">Ship 3-4 of These</h3>
-                    <ul class="modal-resources">
-                        <li>
-                            <strong>1. An MCP Server</strong>
-                            <p>Enterprise-shaped API. Public GitHub with clear README + 60-second demo video. Shows you can ship production infrastructure.</p>
-                        </li>
-                        <li>
-                            <strong>2. A Custom Agent Skill</strong>
-                            <p>Something you actually use. Package procedural knowledge. Demonstrates you understand the Skills pattern.</p>
-                        </li>
-                        <li>
-                            <strong>3. A Small Agent with Evals</strong>
-                            <p>Solves a real weekly workflow. Show eval results AND the demo. Proves you know how to measure success.</p>
-                        </li>
-                        <li>
-                            <strong>4. A Teardown Post</strong>
-                            <p>800-1200 words: pick a frontier engineering pattern, implement it, write what worked and what didn't. Shows technical communication.</p>
-                        </li>
-                        <li>
-                            <strong>5. Deployment Pattern Writeup</strong>
-                            <p>Pick customer profile ("mid-size insurance, claims triage"), sketch architecture (cloud, RAG, evals, guardrails). One page. Shows you think in deployment patterns.</p>
-                        </li>
-                    </ul>
-                    <div style="background: rgba(99, 102, 241, 0.1); padding: 1.5rem; border-radius: 12px; margin-top: 2rem; border: 2px solid rgba(99, 102, 241, 0.3);">
-                        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">💡 Interview Tip</h3>
-                        <p style="color: var(--text-dim);">Write up each project as a case study: situation, customer/stakeholder goal, constraints, what you built, measured outcome. FDE interview loops lean heavily on these.</p>
-                    </div>
-                `
-            }
-        };
-
-        function openModal(phase) {
-            const modal = document.getElementById('modal');
-            const data = modalData[phase];
-            document.getElementById('modalTitle').textContent = data.title;
-            document.getElementById('modalBody').innerHTML = data.content;
-            modal.classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
-        }
-
-        document.getElementById('modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
 </body>
 </html>
