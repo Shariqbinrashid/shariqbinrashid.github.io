@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Engineer Roadmap - Full-Stack to AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0f0f14;
+            --bg-card: #18181f;
+            --bg-elevated: #212128;
+            --border: #2a2a32;
+            --text: #e5e5ea;
+            --text-secondary: #9a9aa5;
+            --text-muted: #6a6a75;
+            --primary: #3b82f6;
+            --primary-glow: #60a5fa;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 4rem 0 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.5rem;
+        }
+
+        /* Journey Path */
+        .journey {
+            padding: 4rem 0;
+        }
+
+        .phase {
+            margin-bottom: 6rem;
+            position: relative;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .phase-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .phase-content {
+            flex: 1;
+        }
+
+        .phase-meta {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+        }
+
+        .project {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            border-color: var(--primary);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .project:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .project-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .badge-foundation { background: rgba(59, 130, 246, 0.15); color: var(--primary); }
+        .badge-intermediate { background: rgba(139, 92, 246, 0.15); color: var(--secondary); }
+        .badge-advanced { background: rgba(6, 182, 212, 0.15); color: var(--accent); }
+        .badge-expert { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+
+        .difficulty {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .diff-bar {
+            width: 4px;
+            height: 20px;
+            border-radius: 2px;
+            background: var(--border);
+        }
+
+        .diff-bar.active {
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .stack-tag {
+            padding: 0.35rem 0.75rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-family: 'Fira Code', monospace;
+            color: var(--text-muted);
+        }
+
+        /* Connector */
+        .connector {
+            width: 3px;
+            height: 100px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            opacity: 0.3;
+        }
+
+        /* Skills Matrix */
+        .skills-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .skills-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            padding: 0.5rem;
+            background: var(--bg);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: 'Fira Code', monospace;
+            color: var(--text-secondary);
+        }
+
+        /* Milestones */
+        .milestones {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .milestone-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .milestone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .milestone {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .milestone-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .milestone h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .milestone p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-badge">Full-Stack → AI Engineer</div>
+            <h1>AI Engineer Roadmap</h1>
+            <p class="subtitle">
+                Production-focused path from full-stack development to building and deploying ML systems at scale. MLOps, LLMOps, and real infrastructure.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">16</div>
+                    <div class="stat-label">Weeks</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Production Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">9.8x</div>
+                    <div class="stat-label">MLOps Growth</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Phases</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="journey">
+            <!-- Phase 1 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-icon">🧠</div>
+                    <div class="phase-content">
+                        <div class="phase-meta">Phase 1 · Weeks 1-3</div>
+                        <h2 class="phase-title">ML Foundations & LLM APIs</h2>
+                        <p class="phase-description">
+                            Leverage your full-stack skills. Start with LLM APIs, not raw ML math. You already know Python and REST APIs — this is just a new endpoint.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-foundation">Week 1-2</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar"></div>
+                                <div class="diff-bar"></div>
+                                <div class="diff-bar"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">LLM-Powered Backend API</h3>
+                        <p class="project-desc">
+                            Build a REST API that wraps Claude/OpenAI with streaming, rate limiting, and cost tracking. Add 3 endpoints: chat, summarize, extract. Deploy to Railway/Fly.io. Track tokens/cost per request.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">Python</span>
+                            <span class="stack-tag">FastAPI</span>
+                            <span class="stack-tag">Claude API</span>
+                            <span class="stack-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-foundation">Week 2-3</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar"></div>
+                                <div class="diff-bar"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Prompt Caching & Cost Optimization</h3>
+                        <p class="project-desc">
+                            Take a $200/month LLM app. Cut it to $20/month. Use: prompt caching, batch API, response streaming, token budgets. Show before/after billing. Document the optimizations.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">Caching</span>
+                            <span class="stack-tag">Batch API</span>
+                            <span class="stack-tag">Cost Analysis</span>
+                            <span class="stack-tag">Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connector"></div>
+
+            <!-- Phase 2 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-icon">🔧</div>
+                    <div class="phase-content">
+                        <div class="phase-meta">Phase 2 · Weeks 4-6</div>
+                        <h2 class="phase-title">RAG & Vector Systems</h2>
+                        <p class="phase-description">
+                            Build retrieval-augmented generation systems. This is where LLMs become useful for real business problems. No PhDs needed—just chunking, embeddings, and search.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-intermediate">Week 4-5</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar"></div>
+                                <div class="diff-bar"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Document QA System with RAG</h3>
+                        <p class="project-desc">
+                            Build a RAG pipeline: PDF upload → chunking → embeddings → Pinecone → semantic search → LLM synthesis. Add: reranking, hybrid search (BM25 + vector), citation tracking. Eval with recall@k.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">LangChain</span>
+                            <span class="stack-tag">Pinecone</span>
+                            <span class="stack-tag">Embeddings</span>
+                            <span class="stack-tag">Reranking</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-intermediate">Week 5-6</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Multi-Agent Research Assistant</h3>
+                        <p class="project-desc">
+                            Build 3 specialized agents: web searcher, document reader, synthesizer. Use LangGraph for orchestration. Add tool use, sub-agent communication, state management. Make it solve a real research task.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">LangGraph</span>
+                            <span class="stack-tag">Tool Use</span>
+                            <span class="stack-tag">Agent Orchestration</span>
+                            <span class="stack-tag">State Machines</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connector"></div>
+
+            <!-- Phase 3 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-icon">🚀</div>
+                    <div class="phase-content">
+                        <div class="phase-meta">Phase 3 · Weeks 7-10</div>
+                        <h2 class="phase-title">MLOps & Production Deployment</h2>
+                        <p class="phase-description">
+                            This is where AI Engineers live. Docker, Kubernetes, CI/CD, model monitoring, drift detection. Build systems that run 24/7 and don't break.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-advanced">Week 7-8</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Containerized ML Pipeline</h3>
+                        <p class="project-desc">
+                            Dockerize your RAG system. Add: Kubernetes deployment, horizontal scaling, health checks, graceful shutdown. Set up CI/CD (GitHub Actions) that runs tests + deploys. Add Prometheus metrics + Grafana dashboard.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">Docker</span>
+                            <span class="stack-tag">Kubernetes</span>
+                            <span class="stack-tag">GitHub Actions</span>
+                            <span class="stack-tag">Prometheus</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-advanced">Week 8-9</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Model Monitoring & Drift Detection</h3>
+                        <p class="project-desc">
+                            Build a monitoring system: log every LLM call (prompt, response, latency, cost), detect semantic drift, track error patterns, auto-alert on anomalies. Add A/B testing framework for prompt variants. Deploy to production.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">LangSmith</span>
+                            <span class="stack-tag">Drift Detection</span>
+                            <span class="stack-tag">A/B Testing</span>
+                            <span class="stack-tag">Alerts</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-expert">Week 9-10</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">AWS Bedrock / Azure OpenAI Deploy</h3>
+                        <p class="project-desc">
+                            Deploy your system on enterprise cloud. Add: VPC setup, IAM roles, CloudWatch logs, cost allocation tags, auto-scaling policies. Document the architecture. Run load tests (1000 req/min). Write runbook for incidents.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">AWS Bedrock</span>
+                            <span class="stack-tag">Terraform</span>
+                            <span class="stack-tag">Load Testing</span>
+                            <span class="stack-tag">CloudWatch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connector"></div>
+
+            <!-- Phase 4 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-icon">📊</div>
+                    <div class="phase-content">
+                        <div class="phase-meta">Phase 4 · Weeks 11-14</div>
+                        <h2 class="phase-title">Classical ML & Model Training</h2>
+                        <p class="phase-description">
+                            Now learn the ML fundamentals. You've been using pre-trained models—time to train your own. Classification, regression, feature engineering. Real datasets, real problems.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-intermediate">Week 11-12</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar"></div>
+                                <div class="diff-bar"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">End-to-End Classification Pipeline</h3>
+                        <p class="project-desc">
+                            Pick a Kaggle dataset. Build: data cleaning, feature engineering, train/val/test split, model training (Random Forest, XGBoost), hyperparameter tuning, evaluation. Package as API. Add model versioning with MLflow.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">scikit-learn</span>
+                            <span class="stack-tag">XGBoost</span>
+                            <span class="stack-tag">MLflow</span>
+                            <span class="stack-tag">Feature Engineering</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-advanced">Week 12-13</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Deep Learning Model from Scratch</h3>
+                        <p class="project-desc">
+                            Build a CNN for image classification (PyTorch). Train on GPUs, track experiments, save checkpoints, implement early stopping. Deploy with TorchServe. Add: data augmentation, transfer learning, model quantization for edge.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">PyTorch</span>
+                            <span class="stack-tag">GPU Training</span>
+                            <span class="stack-tag">TorchServe</span>
+                            <span class="stack-tag">Transfer Learning</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-expert">Week 13-14</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Automated Retraining Pipeline</h3>
+                        <p class="project-desc">
+                            Build a pipeline that: detects when model performance degrades, triggers automated retraining on new data, validates new model, deploys if better, rolls back if worse. Full CI/CD for ML. Add: data versioning (DVC), experiment tracking.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">Airflow</span>
+                            <span class="stack-tag">DVC</span>
+                            <span class="stack-tag">Auto-retraining</span>
+                            <span class="stack-tag">Model Registry</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connector"></div>
+
+            <!-- Phase 5 -->
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-icon">⚡</div>
+                    <div class="phase-content">
+                        <div class="phase-meta">Phase 5 · Weeks 15-16</div>
+                        <h2 class="phase-title">Performance & Scale</h2>
+                        <p class="phase-description">
+                            Optimize for production. Sub-200ms latency, horizontal scaling, cost per request, throughput. This is what separates hobbyists from production engineers.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-expert">Week 15-16</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">High-Performance ML System</h3>
+                        <p class="project-desc">
+                            Optimize your deployed system: add Redis caching, implement request batching, use ONNX for inference speedup, add horizontal pod autoscaling. Benchmark: latency (p50, p95, p99), throughput (req/sec), cost per 1K requests.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">ONNX</span>
+                            <span class="stack-tag">Redis</span>
+                            <span class="stack-tag">Batching</span>
+                            <span class="stack-tag">Performance Tuning</span>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <span class="project-badge badge-expert">Week 16</span>
+                            <div class="difficulty">
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                                <div class="diff-bar active"></div>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Production ML Portfolio</h3>
+                        <p class="project-desc">
+                            Package everything as a portfolio. Write: technical blog posts (3+), architecture diagrams, cost analysis, performance benchmarks. Record a 5-min demo video. Open-source your best work. Make it interview-ready.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-tag">Documentation</span>
+                            <span class="stack-tag">GitHub</span>
+                            <span class="stack-tag">Blog Posts</span>
+                            <span class="stack-tag">Case Studies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Matrix -->
+            <div class="skills-section">
+                <h2 class="skills-title">🛠️ Tech Stack to Master</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Core Programming</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">Python (mandatory)</div>
+                            <div class="skill-item">Java / Go (for scale)</div>
+                            <div class="skill-item">SQL</div>
+                            <div class="skill-item">Docker + Kubernetes</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>ML Frameworks</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">PyTorch</div>
+                            <div class="skill-item">TensorFlow</div>
+                            <div class="skill-item">scikit-learn</div>
+                            <div class="skill-item">Hugging Face</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>LLM & Agents</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">LangChain</div>
+                            <div class="skill-item">LangGraph</div>
+                            <div class="skill-item">CrewAI</div>
+                            <div class="skill-item">Claude / OpenAI APIs</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>MLOps Tools</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">MLflow</div>
+                            <div class="skill-item">DVC (data versioning)</div>
+                            <div class="skill-item">Airflow / Prefect</div>
+                            <div class="skill-item">GitHub Actions</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Cloud Platforms</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">AWS (Bedrock, SageMaker)</div>
+                            <div class="skill-item">GCP (Vertex AI)</div>
+                            <div class="skill-item">Azure (OpenAI Service)</div>
+                            <div class="skill-item">Terraform / IaC</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Monitoring</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">Prometheus + Grafana</div>
+                            <div class="skill-item">LangSmith / Langfuse</div>
+                            <div class="skill-item">Weights & Biases</div>
+                            <div class="skill-item">CloudWatch / Datadog</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Vector & Data</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">Pinecone / Weaviate</div>
+                            <div class="skill-item">Chroma</div>
+                            <div class="skill-item">PostgreSQL + pgvector</div>
+                            <div class="skill-item">Redis</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Model Serving</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">TorchServe</div>
+                            <div class="skill-item">TensorFlow Serving</div>
+                            <div class="skill-item">ONNX Runtime</div>
+                            <div class="skill-item">FastAPI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Milestones -->
+            <div class="milestones">
+                <h2 class="milestone-title">🎯 Success Milestones</h2>
+                <div class="milestone-grid">
+                    <div class="milestone">
+                        <div class="milestone-emoji">🚀</div>
+                        <h3>Production Deploy</h3>
+                        <p>3+ ML systems running 24/7</p>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-emoji">📊</div>
+                        <h3>Model Monitoring</h3>
+                        <p>Drift detection + auto-retraining</p>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-emoji">⚡</div>
+                        <h3>Performance</h3>
+                        <p>Sub-200ms latency at scale</p>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-emoji">💰</div>
+                        <h3>Cost Optimization</h3>
+                        <p>10x cost reduction documented</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built by <a href="https://github.com/shariqbinrashid" style="color: var(--primary); text-decoration: none;">Shariq Bin Rashid</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Based on 2025-2026 AI Engineer job market analysis and MLOps trends.</p>
+        </footer>
+    </div>
+</body>
+</html>
